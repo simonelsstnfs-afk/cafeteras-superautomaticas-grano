@@ -3,12 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comparador Interactivo de Cafeteras Superautomáticas (2026)</title>
-  <meta name="description" content="Compara lado a lado especificaciones, bares de presión, tipo de molinillo, sistema de leche y precios de las principales cafeteras superautomáticas de grano.">
+  <title>Comparador Interactivo de Cafeteras Superautomáticas (2026) | SuperautomáticasLab</title>
+  <meta name="description" content="Compara lado a lado especificaciones de laboratorio, bares de presión, tolerancia de molienda, sistema de leche y precios de cafeteras superautomáticas de grano.">
   <link rel="canonical" href="https://cafeterassuperautomaticasgrano.es/comparador.html">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260901">
-  <script defer src="assets/js/main.js?v=20260901"></script>
-  <script defer src="assets/js/comparador.js?v=20260901"></script>
+  
+  <!-- Typography & Assets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/logo_square.png">
+  
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260901e">
+  <script defer src="assets/js/main.js?v=20260901e"></script>
+  <script defer src="assets/js/comparador.js?v=20260901e"></script>
   
   <!-- Cloudflare & AI Engine Crawler Hints (Directivas Indexación) -->
   <meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots">
@@ -68,184 +77,219 @@
 </head>
 <body>
 
-  <!-- Top Amazon Disclaimer Bar -->
-  <aside class="top-disclaimer-bar">
-    <div class="container top-bar-inner">
-      <span class="disclosure-tag">Aviso de Afiliación</span>
-      <p class="disclosure-text">En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
+  <!-- Top Legal Disclosure Bar -->
+  <aside class="disclosure-bar">
+    <div class="container disclosure-inner">
+      <span class="disclosure-badge">Divulgación</span>
+      <p class="disclosure-text">Participamos en el Programa de Afiliados de Amazon. Si compras a través de nuestros enlaces verificados, podemos recibir una comisión sin coste añadido para ti.</p>
     </div>
   </aside>
 
   <!-- Header -->
-  <header class="site-header">
+  <header class="header" id="header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo">
-        <div class="brand-icon">☕</div>
-        <div class="brand-text">Superautomáticas<span>Grano</span></div>
+      <a href="index.html" class="brand" aria-label="SuperautomáticasLab Inicio">
+        <div class="brand-badge">
+          <img src="assets/img/logo_icon.png" alt="SuperautomáticasLab Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-identity">
+          <span class="brand-name">Superautomáticas<strong>Lab</strong></span>
+          <span class="brand-sub">LABORATORIO DE EXTRACCIÓN</span>
+        </div>
       </a>
-      <nav class="main-nav" id="mainNav">
-        <a href="index.html">Inicio</a>
-        <a href="comparador.html" class="active">Comparador</a>
-        <a href="guia-compra.html">Guía de Compra</a>
-        <a href="index.html#modelos-destacados">Modelos</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="comparador.html" class="nav-cta">Comparar Modelos</a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="comparador.html" class="nav-link active">Comparador</a>
+        <a href="guia-compra.html" class="nav-link">Guía de Compra</a>
+        <a href="index.html#modelos" class="nav-link">Fichas &amp; Radar</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
       </nav>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menú">☰</button>
+
+      <div class="header-action">
+        <a href="index.html#asistente" class="btn btn-nav-cta">
+          <span>Selector Guiado</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- Breadcrumbs -->
   <div class="container">
-    <nav class="breadcrumbs">
+    <nav class="comp-breadcrumb" aria-label="Ruta de navegación">
       <a href="index.html">Inicio</a>
-      <span>/</span>
-      <span style="color: var(--primary); font-weight: 600;">Comparador Interactivo</span>
+      <span class="sep">/</span>
+      <span class="current">Comparador Multi-Modelo</span>
     </nav>
   </div>
 
-  <main class="container section" style="padding-top: 10px;">
-    <div class="section-header">
-      <span class="badge badge-editor">MOTOR DINÁMICO SIDE-BY-SIDE</span>
-      <h1>Comparador de Cafeteras Superautomáticas de Grano</h1>
-      <p>Filtra por especificaciones técnicas, selecciona hasta 4 modelos simultáneamente y compara de forma directa sus diferencias clave y puntuaciones técnicas.</p>
-    </div>
-
-    <!-- Answer-First Direct Answer Block (AEO / GEO Engine Friendly) -->
-    <div class="aeo-answer-first">
-      <div class="aeo-answer-header">
-        <span class="aeo-badge">⚡ Veredicto Comparativo Rápido</span>
-        <span class="aeo-answer-title">Criterio de Decisión entre Modelos Líderes</span>
+  <main class="container">
+    <div class="comp-hero-section">
+      <div class="meta-tag">
+        <span class="meta-dot"></span>
+        <span>BANCO DE PRUEBAS TÉCNICO 2026</span>
       </div>
-      <p class="aeo-answer-text">
-        Al comparar cafeteras superautomáticas de grano, prioriza según tu hábito diario: elige muelas de acero y vaporizador manual (<strong>De'Longhi Magnifica S</strong>) para máxima durabilidad en espresso puro; opta por molinillo cerámico y jarra automática (<strong>Philips 3300 LatteGo</strong>) para capuchinos diarios; o escoge 19 bares compactos (<strong>Cecotec Cremmaet</strong>) para espacios reducidos.
+      <h1 class="comp-title">Comparador de Cafeteras Superautomáticas de Grano</h1>
+      <p class="comp-lead">
+        Filtra por especificaciones técnicas, activa hasta 4 modelos simultáneamente y compara de forma directa sus tolerancias de molienda, sistemas de emulsión y amortización real.
       </p>
-    </div>
 
-    <!-- Filter & Selection Controls -->
-    <div class="comp-controls-bar">
-      
-      <div class="filter-group">
-        <span class="filter-label">Filtrar por Presión (Bares):</span>
-        <div class="filter-pills" id="filterBares">
-          <button class="filter-pill active" data-val="all">Todos los Bares</button>
-          <button class="filter-pill" data-val="15">15 Bares Estándar</button>
-          <button class="filter-pill" data-val="19">19 Bares Alta Presión</button>
+      <!-- Answer-First Direct Answer Block -->
+      <div class="comp-verdict">
+        <div class="comp-verdict-header">
+          <span class="calc-eyebrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            Veredicto Comparativo Rápido
+          </span>
+          <span class="comp-verdict-title">Criterio de Decisión entre Modelos Líderes</span>
         </div>
+        <p class="comp-verdict-text">
+          Al comparar cafeteras superautomáticas de grano, prioriza según tu hábito diario: elige muelas de acero y vaporizador manual (<strong>De'Longhi Magnifica S</strong>) para máxima durabilidad en espresso puro; opta por molinillo cerámico y jarra automática (<strong>Philips 3300 LatteGo</strong>) para capuchinos diarios; o escoge 19 bares compactos (<strong>Cecotec Cremmaet</strong>) para espacios reducidos y presupuesto contenido.
+        </p>
       </div>
 
-      <div class="filter-group">
-        <span class="filter-label">Filtrar por Tipo de Molinillo:</span>
-        <div class="filter-pills" id="filterMolinillo">
-          <button class="filter-pill active" data-val="all">Cualquier Molinillo</button>
-          <button class="filter-pill" data-val="ceramico">100% Cerámico (Philips)</button>
-          <button class="filter-pill" data-val="acero">Acero Cónico (De'Longhi / Cecotec)</button>
-        </div>
-      </div>
+      <!-- Filter & Selection Controls Card -->
+      <div class="comp-controls-card">
+        <div class="comp-filter-grid">
+          <div class="comp-filter-group">
+            <span class="comp-filter-label">Presión de Bomba:</span>
+            <div class="comp-filter-pills" id="filterBares">
+              <button type="button" class="filter-pill active" data-val="all">Todos los Bares</button>
+              <button type="button" class="filter-pill" data-val="15">15 Bares Estándar</button>
+              <button type="button" class="filter-pill" data-val="19">19 Bares Alta Presión</button>
+            </div>
+          </div>
 
-      <div class="filter-group">
-        <span class="filter-label">Filtrar por Sistema de Leche:</span>
-        <div class="filter-pills" id="filterLeche">
-          <button class="filter-pill active" data-val="all">Todos los Sistemas</button>
-          <button class="filter-pill" data-val="automatico">Automático (LatteGo sin tubos)</button>
-          <button class="filter-pill" data-val="manual">Manual / Vaporizador Panarello</button>
-        </div>
-      </div>
+          <div class="comp-filter-group">
+            <span class="comp-filter-label">Tipo de Molinillo:</span>
+            <div class="comp-filter-pills" id="filterMolinillo">
+              <button type="button" class="filter-pill active" data-val="all">Cualquier Molinillo</button>
+              <button type="button" class="filter-pill" data-val="ceramico">100% Cerámico (Philips)</button>
+              <button type="button" class="filter-pill" data-val="acero">Acero Cónico (De'Longhi / Cecotec)</button>
+            </div>
+          </div>
 
-      <div class="filter-group">
-        <span class="filter-label">Filtrar por Presupuesto de Referencia:</span>
-        <div class="filter-pills" id="filterPrecio">
-          <button class="filter-pill active" data-val="all">Cualquier Precio</button>
-          <button class="filter-pill" data-val="sub200">Menos de 200 €</button>
-          <button class="filter-pill" data-val="200-300">200 € a 300 €</button>
-          <button class="filter-pill" data-val="over300">Más de 300 €</button>
-        </div>
-      </div>
+          <div class="comp-filter-group">
+            <span class="comp-filter-label">Sistema de Leche:</span>
+            <div class="comp-filter-pills" id="filterLeche">
+              <button type="button" class="filter-pill active" data-val="all">Todos los Sistemas</button>
+              <button type="button" class="filter-pill" data-val="automatico">Automático (LatteGo sin tubos)</button>
+              <button type="button" class="filter-pill" data-val="manual">Manual / Vaporizador Panarello</button>
+            </div>
+          </div>
 
-      <div style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-          <div>
-            <span class="filter-label" style="margin-bottom: 4px;">Modelos actualmente en la comparativa:</span>
+          <div class="comp-filter-group">
+            <span class="comp-filter-label">Presupuesto Estimado:</span>
+            <div class="comp-filter-pills" id="filterPrecio">
+              <button type="button" class="filter-pill active" data-val="all">Cualquier Precio</button>
+              <button type="button" class="filter-pill" data-val="sub200">Menos de 200 €</button>
+              <button type="button" class="filter-pill" data-val="200-300">200 € a 300 €</button>
+              <button type="button" class="filter-pill" data-val="over300">Más de 300 €</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-actions-bar">
+          <div class="comp-chips-wrap">
+            <span class="comp-chips-label">Modelos activos en la matriz comparativa:</span>
             <div class="chips-container" id="productChips"></div>
           </div>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <input type="checkbox" id="diffToggle" style="width: 18px; height: 18px; cursor: pointer; accent-color: var(--accent-amber);">
-            <label for="diffToggle" style="font-size: 0.9rem; font-weight: 700; color: var(--primary); cursor: pointer;">
-              Mostrar solo diferencias
-            </label>
+          <div class="comp-diff-toggle-wrap">
+            <input type="checkbox" id="diffToggle">
+            <label for="diffToggle">Mostrar solo diferencias técnicas</label>
           </div>
         </div>
       </div>
 
-    </div>
-
-    <!-- Comparison Matrix Table -->
-    <div class="comp-matrix-container" id="comparisonMatrix">
-      <!-- Generated by comparador.js -->
-    </div>
-
-    <!-- Dual Radar Visualization -->
-    <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-subtle); margin-top: 32px;">
-      <div style="text-align: center; margin-bottom: 20px;">
-        <span class="badge badge-editor">VISUALIZACIÓN TÉCNICA COMPARADA</span>
-        <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary); margin-top: 8px;">Gráfico Radar Superpuesto (2 Primeros Modelos)</h3>
-        <p style="font-size: 0.9rem; color: var(--text-body);">Visualiza de forma inmediata las fortalezas relativas en calidad del espresso, precisión de molienda, facilidad de limpieza, rapidez acústica y relación calidad/precio.</p>
-        <div id="radarLegend" style="display: flex; justify-content: center; gap: 24px; margin-top: 14px;"></div>
+      <!-- Comparison Matrix Table -->
+      <div class="comp-matrix-container" id="comparisonMatrix">
+        <!-- Rendered dynamically by comparador.js -->
       </div>
 
-      <div style="display: flex; justify-content: center;">
-        <canvas id="dualRadarCanvas" width="340" height="340" style="max-width: 100%; height: auto;"></canvas>
-      </div>
-    </div>
+      <!-- Dual Radar Chart Comparison -->
+      <div class="comp-radar-card">
+        <div class="comp-radar-header">
+          <div class="meta-tag" style="display:inline-flex; margin-bottom: 8px;">
+            <span class="meta-dot"></span>
+            <span>VISUALIZACIÓN TÉCNICA PENTAGONAL</span>
+          </div>
+          <h2 class="comp-radar-title">Gráfico Radar Comparado (2 Primeros Modelos)</h2>
+          <p class="comp-radar-sub">
+            Contrasta directamente tolerancia de molienda, calidad del espresso, aislamiento acústico, facilidad de mantenimiento e índice calidad/precio.
+          </p>
+          <div id="radarLegend" class="comp-radar-legend"></div>
+        </div>
 
+        <div style="display: flex; justify-content: center;">
+          <canvas id="dualRadarCanvas" width="360" height="360" style="max-width: 100%; height: auto;"></canvas>
+        </div>
+      </div>
+
+    </div>
   </main>
 
-  <!-- Footer -->
+  <!-- Technical Footer (Aligned with index.html) -->
   <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand-naming" style="margin-bottom: 12px;">
+          <span class="brand-name" style="color: #FFFFFF; font-size: 1.15rem;">Superautomáticas<strong>Lab</strong></span>
+          <span class="brand-sub" style="color: var(--ink-faint); font-size: 0.65rem;">LABORATORIO DE EXTRACCIÓN</span>
+        </div>
+        <p class="footer-desc">
+          Banco de pruebas y auditoría técnica independiente de cafeteras superautomáticas de grano. Análisis riguroso de tolerancia de molienda, termobloques y amortización real.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-nav-title">Modelos Analizados</span>
+        <ul class="footer-links">
+          <li><a href="fichas/delonghi-magnifica-s.html">De'Longhi Magnifica S</a></li>
+          <li><a href="fichas/philips-3300-lattego.html">Philips 3300 LatteGo</a></li>
+          <li><a href="fichas/philips-serie-2200.html">Philips Serie 2200</a></li>
+          <li><a href="fichas/cecotec-cremmaet-cube.html">Cecotec Cremmaet Cube</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-nav-title">Guías &amp; Comparativas</span>
+        <ul class="footer-links">
+          <li><a href="comparador.html">Comparador Multi-Modelo</a></li>
+          <li><a href="guia-compra.html">Guía de Compra Técnica</a></li>
+          <li><a href="index.html#asistente">Calculador de Ahorro</a></li>
+          <li><a href="index.html#consumibles">Mantenimiento y Filtros</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-nav-title">Marco Legal &amp; Afiliación</span>
+        <ul class="footer-links">
+          <li><a href="aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+          <li><a href="cookies.html">Política de Cookies</a></li>
+          <li><a href="https://www.amazon.es" target="_blank" rel="nofollow noopener">Programa Afiliados Amazon</a></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <h4>Cafeteras Superautomáticas de Grano</h4>
-          <p>Tu portal editorial independiente especializado en análisis exhaustivos, pruebas de extracción y comparativas técnicas para elegir la cafetera superautomática de grano perfecta para tu hogar.</p>
-        </div>
-        <div class="footer-col">
-          <h5>Navegación</h5>
-          <ul class="footer-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="comparador.html">Comparador de Modelos</a></li>
-            <li><a href="guia-compra.html">Guía de Compra Completa</a></li>
-            <li><a href="index.html#modelos-destacados">Modelos Destacados</a></li>
-            <li><a href="index.html#faq">Preguntas Frecuentes</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Información Legal</h5>
-          <ul class="footer-links">
-            <li><a href="aviso-legal.html">Aviso Legal</a></li>
-            <li><a href="privacidad.html">Política de Privacidad</a></li>
-            <li><a href="cookies.html">Política de Cookies</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-legal-disclaimer">
-        <p><strong>Aviso legal sobre afiliados:</strong> En calidad de Afiliado de Amazon, este sitio web obtiene ingresos por las compras adscritas que cumplen los requisitos aplicables. Amazon y el logotipo de Amazon son marcas comerciales de Amazon.com, Inc. o de sus filiales. Los precios y la disponibilidad de los productos son precisos a la fecha de publicación (Septiembre 2026) y están sujetos a cambios constantes en Amazon.es.</p>
-      </div>
-
-      <div class="footer-bottom-row">
-        <div>© 2026 CafeterasSuperautomaticasGrano.es — Todos los derechos reservados.</div>
-        <div>Diseño 'Minimalist Nordic Warmth' — Alta velocidad y máxima legibilidad editorial.</div>
+      <div class="footer-bottom">
+        <p class="legal-notice">
+          <strong>Aviso de Transparencia de Afiliación:</strong> En calidad de Afiliado de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables. Amazon y el logotipo de Amazon son marcas comerciales de Amazon.com, Inc. o sus filiales.
+        </p>
+        <div class="footer-copy font-mono">© 2026 SuperautomáticasLab. Guía Técnica Independiente.</div>
       </div>
     </div>
   </footer>
 
-  <!-- Cookie Banner -->
-  <div class="cookie-banner" id="cookieBanner">
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-modal="true" aria-label="Consentimiento de cookies">
     <div class="cookie-content">
-      <p>Utilizamos cookies propias y de terceros (incluyendo el sistema de atribución de afiliados de Amazon) para mejorar la experiencia de navegación y garantizar el correcto funcionamiento del comparador interactivo. Consulta nuestra <a href="cookies.html" style="text-decoration: underline;">Política de Cookies</a>.</p>
+      <p>Utilizamos cookies esenciales y analíticas para optimizar la experiencia de navegación técnica y medir conversiones de afiliados según la normativa europea. Puedes aceptar o continuar solo con las estrictamente necesarias.</p>
       <div class="cookie-actions">
-        <button class="btn btn-sm btn-outline" id="rejectCookies">Solo Esenciales</button>
-        <button class="btn btn-sm btn-primary" id="acceptCookies">Aceptar Todas</button>
+        <button id="rejectCookies" class="btn btn-secondary btn-sm">Solo Necesarias</button>
+        <button id="acceptCookies" class="btn btn-primary btn-sm">Aceptar Todas</button>
       </div>
     </div>
   </div>

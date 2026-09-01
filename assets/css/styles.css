@@ -2458,3 +2458,402 @@ a {
     margin: 8px auto;
   }
 }
+
+/* ==========================================================================
+   Full Comparator Page (comparador.html) Styles
+   Strict Swiss Typographic Identity Alignment
+   ========================================================================== */
+
+.comp-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.80rem;
+  color: var(--ink-muted);
+  padding: 18px 0 6px;
+}
+
+.comp-breadcrumb a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color var(--duration-quick);
+}
+
+.comp-breadcrumb a:hover {
+  color: var(--ink-primary);
+}
+
+.comp-breadcrumb .sep {
+  color: var(--border-medium);
+}
+
+.comp-breadcrumb .current {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.comp-hero-section {
+  padding: 16px 0 28px;
+}
+
+.comp-hero-section .meta-tag {
+  margin-bottom: 12px;
+}
+
+.comp-title {
+  font-family: var(--font-display);
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: var(--ink-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.comp-lead {
+  font-size: 1.05rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  max-width: 72ch;
+  margin-bottom: 22px;
+}
+
+/* Verdict Callout */
+.comp-verdict {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.comp-verdict-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.comp-verdict-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.comp-verdict-text {
+  font-size: 0.90rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+/* Filter Controls Box */
+.comp-controls-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px 26px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.comp-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.comp-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comp-filter-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-primary);
+}
+
+.comp-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.comp-filter-pills .filter-pill {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 6px 11px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all var(--duration-quick) var(--ease-tactile);
+}
+
+.comp-filter-pills .filter-pill:hover {
+  border-color: var(--ink-muted);
+  color: var(--ink-primary);
+}
+
+.comp-filter-pills .filter-pill.active {
+  background: var(--ink-primary);
+  border-color: var(--ink-primary);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.comp-actions-bar {
+  border-top: 1px solid var(--border-light);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.comp-chips-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.comp-chips-label {
+  font-size: 0.80rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+}
+
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.picker-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: all var(--duration-quick);
+}
+
+.picker-chip:hover {
+  border-color: var(--accent);
+  color: var(--ink-primary);
+}
+
+.picker-chip.selected {
+  background: #FEF8F5;
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.comp-diff-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
+  padding: 8px 14px;
+  border-radius: var(--radius-xs);
+  transition: border-color var(--duration-quick);
+}
+
+.comp-diff-toggle-wrap:hover {
+  border-color: var(--ink-muted);
+}
+
+.comp-diff-toggle-wrap input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.comp-diff-toggle-wrap label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  cursor: pointer;
+}
+
+/* Comparison Matrix Table */
+.comp-matrix-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 36px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comp-table th, .comp-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+  font-size: 0.86rem;
+  vertical-align: middle;
+}
+
+.comp-table th:last-child, .comp-table td:last-child {
+  border-right: none;
+}
+
+.comp-table thead th {
+  background: var(--bg-page);
+  vertical-align: top;
+  padding: 22px 18px;
+}
+
+.comp-table thead th.th-spec {
+  width: 220px;
+  font-family: var(--font-display);
+  font-size: 0.90rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  background: var(--bg-subtle);
+  vertical-align: middle;
+}
+
+.comp-prod-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comp-prod-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background: #FFFFFF;
+  border-radius: var(--radius-sm);
+  padding: 6px;
+  border: 1px solid var(--border-light);
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.comp-prod-name {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.comp-prod-price {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.comp-table tbody tr:hover td {
+  background: rgba(243, 244, 246, 0.4);
+}
+
+.comp-table tbody td.td-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--ink-primary);
+  background: var(--bg-page);
+  width: 220px;
+  white-space: nowrap;
+}
+
+.comp-table tbody tr.has-difference td {
+  background: #FFFDF9;
+}
+
+.comp-table tbody tr.has-difference td.td-label {
+  border-left: 3px solid var(--accent);
+  background: #FEF8F5;
+  color: var(--ink-primary);
+}
+
+/* Radar Comparison Card */
+.comp-radar-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 48px;
+}
+
+.comp-radar-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.comp-radar-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--ink-primary);
+  margin: 8px 0 6px;
+}
+
+.comp-radar-sub {
+  font-size: 0.88rem;
+  color: var(--ink-secondary);
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.comp-radar-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.radar-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.80rem;
+  font-weight: 700;
+}
+
+.radar-legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-xs);
+}

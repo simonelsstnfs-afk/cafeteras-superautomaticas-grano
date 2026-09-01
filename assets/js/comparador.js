@@ -259,19 +259,20 @@ function renderComparisonTable() {
   let html = '<table class="comp-table">' +
              '<thead>' +
              '<tr>' +
-             '<th style="width: 220px; background: #F5EFEB;">Especificación</th>';
+             '<th class="th-spec">Especificación Técnica</th>';
 
   currentProducts.forEach(p => {
-    html += '<th style="min-width: 240px; background: #FAF8F5;">' +
-            '<div style="text-align: center;">' +
-            '<img src="' + p.img + '" alt="' + p.name + '" style="width: 84px; height: 84px; object-fit: contain; margin: 0 auto 8px; background:#fff; border-radius: 8px; padding: 4px; border: 1px solid #E8E2D9;">' +
-            '<div style="font-weight: 800; font-size: 0.95rem; color: #2B1810; margin-bottom: 4px; line-height: 1.3;">' + p.name + '</div>' +
-            '<div style="color: #D97706; font-weight: 800; font-size: 1.15rem; margin-bottom: 8px;">' + p.price + '</div>' +
-            '<a href="' + p.affiliate_url + '" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-sm btn-amazon" style="width: 100%; margin-bottom: 6px;">' +
-            'Ver Oferta Amazon →' +
+    html += '<th style="min-width: 240px;">' +
+            '<div class="comp-prod-header">' +
+            '<img src="' + p.img + '" alt="' + p.name + '" class="comp-prod-img">' +
+            '<div class="comp-prod-name">' + p.name + '</div>' +
+            '<div class="comp-prod-price font-mono">' + p.price + '</div>' +
+            '<a href="' + p.affiliate_url + '" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-amazon btn-sm" style="width: 100%; margin-bottom: 8px;">' +
+            '<span>Ver en Amazon</span>' +
+            '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>' +
             '</a>' +
-            '<a href="fichas/' + p.slug + '.html" style="font-size: 0.78rem; font-weight: 700; color: #7A6F68; display: block;">' +
-            'Análisis Técnico Detallado ↗' +
+            '<a href="fichas/' + p.slug + '.html" class="btn btn-secondary btn-sm" style="width: 100%; font-size: 0.78rem;">' +
+            'Ficha y Análisis ↗' +
             '</a>' +
             '</div>' +
             '</th>';
@@ -286,10 +287,10 @@ function renderComparisonTable() {
     if (showOnlyDiffs && !hasDiff) return;
 
     html += '<tr class="' + (hasDiff ? 'has-difference' : '') + '">' +
-            '<td style="font-weight: 700; background: #FAF8F5; color: #2B1810;">' + r.label + '</td>';
+            '<td class="td-label">' + r.label + '</td>';
 
     currentProducts.forEach(p => {
-      html += '<td style="' + (hasDiff ? 'background: #FFFDF9;' : '') + '">' + p[r.key] + '</td>';
+      html += '<td>' + p[r.key] + '</td>';
     });
 
     html += '</tr>';
@@ -331,15 +332,15 @@ function drawDualRadar() {
       else ctx.lineTo(px, py);
     }
     ctx.closePath();
-    ctx.strokeStyle = '#E8E2D9';
+    ctx.strokeStyle = '#E5E7EB';
     ctx.lineWidth = 1;
     ctx.stroke();
   }
 
-  ctx.font = 'bold 11px system-ui, sans-serif';
+  ctx.font = "600 11px 'Plus Jakarta Sans', system-ui, sans-serif";
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillStyle = '#4A3E38';
+  ctx.fillStyle = '#4B5563';
 
   for (let i = 0; i < numAxes; i++) {
     const angle = (Math.PI * 2 / numAxes) * i - (Math.PI / 2);
@@ -349,7 +350,7 @@ function drawDualRadar() {
     ctx.beginPath();
     ctx.moveTo(cx, cy);
     ctx.lineTo(ax, ay);
-    ctx.strokeStyle = '#DFD7CB';
+    ctx.strokeStyle = '#D1D5DB';
     ctx.setLineDash([2, 2]);
     ctx.stroke();
     ctx.setLineDash([]);
@@ -360,8 +361,8 @@ function drawDualRadar() {
   }
 
   const colors = [
-    { fill: 'rgba(217, 119, 6, 0.25)', stroke: '#D97706' },
-    { fill: 'rgba(43, 24, 16, 0.22)', stroke: '#2B1810' }
+    { fill: 'rgba(217, 83, 30, 0.22)', stroke: '#D9531E' },
+    { fill: 'rgba(17, 24, 39, 0.18)', stroke: '#111827' }
   ];
 
   const currentProducts = PRODUCTS_DATA.filter(p => selectedAsins.includes(p.asin)).slice(0, 2);
@@ -389,8 +390,8 @@ function drawDualRadar() {
   const legendDiv = document.getElementById('radarLegend');
   if (legendDiv) {
     legendDiv.innerHTML = currentProducts.map((p, idx) => {
-      return '<div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: ' + colors[idx].stroke + ';">' +
-             '<span style="display: inline-block; width: 14px; height: 14px; background: ' + colors[idx].fill + '; border: 2px solid ' + colors[idx].stroke + '; border-radius: 3px;"></span>' +
+      return '<div class="radar-legend-item" style="color: ' + colors[idx].stroke + ';">' +
+             '<span class="radar-legend-dot" style="background: ' + colors[idx].stroke + ';"></span>' +
              '<span>' + p.name + '</span>' +
              '</div>';
     }).join('');
