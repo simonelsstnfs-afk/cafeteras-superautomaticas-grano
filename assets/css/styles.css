@@ -500,6 +500,226 @@ a {
   background: var(--border-light);
 }
 
+/* Interactive Hero Savings Calculator */
+.hero-calc-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration-quick);
+}
+
+.hero-calc-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.calc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.calc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+}
+
+.calc-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+.calc-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.calc-cups-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.calc-pill-group {
+  display: inline-flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.calc-pill {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all var(--duration-quick) var(--ease-tactile);
+}
+
+.calc-pill:hover {
+  border-color: var(--ink-muted);
+  color: var(--ink-primary);
+}
+
+.calc-pill.active {
+  background: var(--ink-primary);
+  border-color: var(--ink-primary);
+  color: #FFFFFF;
+}
+
+.calc-metrics-row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr 0.9fr;
+  gap: 14px;
+  padding: 12px 16px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+}
+
+.calc-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-val-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.calc-val-main {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.15;
+}
+
+.calc-val-sub {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.calc-lbl {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+
+.calc-guidance-banner {
+  background: #FEF8F5;
+  border: 1px solid rgba(217, 83, 30, 0.2);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.guidance-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.guidance-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-xs);
+  background: rgba(217, 83, 30, 0.12);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.guidance-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.guidance-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.guidance-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.guidance-desc {
+  font-size: 0.78rem;
+  color: var(--ink-secondary);
+  line-height: 1.4;
+  max-width: 44ch;
+}
+
+.guidance-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--accent);
+  padding: 8px 14px;
+  border-radius: var(--radius-xs);
+  transition: all var(--duration-quick);
+  white-space: nowrap;
+}
+
+.guidance-cta:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(217, 83, 30, 0.28);
+}
+
+@media (max-width: 600px) {
+  .calc-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .guidance-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .hero-actions {
   display: flex;
   align-items: center;

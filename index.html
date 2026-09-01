@@ -14,7 +14,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/logo_square.png">
   
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260901b">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260901c">
 </head>
 <body>
 
@@ -71,20 +71,68 @@
           Evaluación técnica de cafeteras superautomáticas domésticas. Analizamos tolerancia de molienda, estabilidad térmica, mantenimiento del <span class="term-tooltip" tabindex="0" data-tip="Pieza central extraíble que comprime la molienda e inyecta agua a presión. Requiere enjuague semanal.">grupo infusor</span> y amortización real frente al café monodosis.
         </p>
 
-        <div class="hero-metrics">
-          <div class="metric-card">
-            <span class="metric-value font-mono">0,12 €</span>
-            <span class="metric-label">Coste medio por taza</span>
+        <!-- Interactive Automatic Savings Calculator & Guided Purchase Path -->
+        <div class="hero-calc-card" id="heroCalculator" aria-label="Calculadora interactiva de ahorro y amortización">
+          <div class="calc-header">
+            <span class="calc-eyebrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Calculador de Ahorro y Amortización
+            </span>
+            <span class="calc-title">Calcula cuánto ahorras frente a cápsulas:</span>
           </div>
-          <div class="metric-divider"></div>
-          <div class="metric-card">
-            <span class="metric-value font-mono">250 €/año</span>
-            <span class="metric-label">Ahorro frente a cápsulas</span>
+
+          <div class="calc-controls">
+            <span class="calc-cups-label">Consumo diario en tu hogar:</span>
+            <div class="calc-pill-group" role="radiogroup" aria-label="Número de cafés al día">
+              <button type="button" class="calc-pill" data-cups="1">1 café</button>
+              <button type="button" class="calc-pill" data-cups="2">2 cafés</button>
+              <button type="button" class="calc-pill active" data-cups="3">3 cafés (Media)</button>
+              <button type="button" class="calc-pill" data-cups="4">4 cafés</button>
+              <button type="button" class="calc-pill" data-cups="6">6+ cafés</button>
+            </div>
           </div>
-          <div class="metric-divider"></div>
-          <div class="metric-card">
-            <span class="metric-value font-mono">100%</span>
-            <span class="metric-label">Residuo de aluminio eliminado</span>
+
+          <div class="calc-metrics-row">
+            <div class="calc-metric-item">
+              <div class="calc-val-wrap">
+                <span class="calc-val-main font-mono" id="calcAnnualSavings">340 €</span>
+                <span class="calc-val-sub font-mono">/año</span>
+              </div>
+              <span class="calc-lbl">Ahorro neto anual acumulado</span>
+            </div>
+
+            <div class="calc-metric-item">
+              <div class="calc-val-wrap">
+                <span class="calc-val-sub font-mono" id="calcCostPerCup">0,11 €</span>
+                <span class="calc-lbl font-mono" style="margin-top:0;">vs 0,42 € cápsula</span>
+              </div>
+              <span class="calc-lbl">Coste real por taza</span>
+            </div>
+
+            <div class="calc-metric-item">
+              <div class="calc-val-wrap">
+                <span class="calc-val-sub font-mono" id="calcPaybackTime">~9 meses</span>
+              </div>
+              <span class="calc-lbl">Tiempo para pagar la máquina</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Machine Recommendation & Guided Path -->
+          <div class="calc-guidance-banner" id="calcGuidance">
+            <div class="guidance-left">
+              <div class="guidance-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+              </div>
+              <div class="guidance-info">
+                <span class="guidance-tag" id="guidanceTag">Recomendación para 3 cafés/día</span>
+                <div class="guidance-title" id="guidanceTitle">De'Longhi Magnifica S (ECAM 22.110.B)</div>
+                <div class="guidance-desc" id="guidanceDesc">Muelas de acero cónico de alta tolerancia y mecánica fiable. Se amortiza íntegramente en menos de 10 meses.</div>
+              </div>
+            </div>
+            <a href="#card-delonghi" class="guidance-cta" id="guidanceLink">
+              <span id="guidanceBtnText">Ver Análisis & Oferta</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           </div>
         </div>
 
@@ -1145,7 +1193,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20260901"></script>
+  <script src="assets/js/main.js?v=20260901c"></script>
 
   <!-- Cookie Consent Banner -->
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-modal="true" aria-label="Consentimiento de cookies">
