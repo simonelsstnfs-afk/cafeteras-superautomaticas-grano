@@ -411,52 +411,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const cupConfigs = {
     '1': {
-      annualSavings: "113 €",
-      costCup: "0,11 €",
-      payback: "~16 meses",
+      annualSavings: "106 €",
+      costCup: "0,13 €",
+      payback: "~19 meses",
       tag: "Recomendada para 1 café/día (Inversión mínima)",
       title: "Cecotec Cremmaet Cube Compacta (179 €)",
-      desc: "Formato ultra-compacto de 19 bares ideal para un café matutino sin hipotecar espacio ni presupuesto.",
+      desc: "Formato ultra-compacto de 19 bares ideal para un café matutino sin hipotecar espacio ni presupuesto. Se amortiza en 19 meses.",
       anchor: "#card-cecotec",
       btnText: "Ver Análisis & Oferta"
     },
     '2': {
-      annualSavings: "226 €",
-      costCup: "0,11 €",
-      payback: "~12 meses",
+      annualSavings: "212 €",
+      costCup: "0,13 €",
+      payback: "~14 meses",
       tag: "Recomendada para 2 cafés/día (Equilibrio Cerámico)",
       title: "Philips Serie 2200 (EP2220/10 - 249 €)",
-      desc: "Muelas 100% cerámicas que evitan sobrecalentar el grano. Retorno total de inversión en exactamente 12 meses.",
+      desc: "Muelas 100% cerámicas que evitan sobrecalentar el grano. Retorno total de inversión en exactamente 14 meses (ahorro de 18 €/mes).",
       anchor: "#card-philips2200",
       btnText: "Ver Análisis & Oferta"
     },
     '3': {
-      annualSavings: "340 €",
-      costCup: "0,11 €",
-      payback: "~9 meses",
-      tag: "Recomendada para 3 cafés/día (Estándar de Fiabilidad)",
+      annualSavings: "318 €",
+      costCup: "0,13 €",
+      payback: "~11 meses",
+      tag: "Recomendada para 3 cafés/día (Media de Hogar)",
       title: "De'Longhi Magnifica S (299,99 €)",
-      desc: "La cafetera más probada y vendida de la década. Mecánica infalible de 15 bares que se paga sola en 9 meses.",
+      desc: "La cafetera más probada y vendida de la década. Ahorras 26,50 € al mes; la máquina queda totalmente pagada en menos de 1 año.",
       anchor: "#card-delonghi",
       btnText: "Ver Análisis & Oferta"
     },
     '4': {
-      annualSavings: "453 €",
-      costCup: "0,11 €",
-      payback: "~7 meses",
+      annualSavings: "423 €",
+      costCup: "0,13 €",
+      payback: "~8 meses",
       tag: "Recomendada para 4 cafés/día (Alta Rotación Familiar)",
       title: "De'Longhi Magnifica S o Philips 2200",
-      desc: "Con un ahorro de 38 €/mes, recuperas la inversión en poco más de medio año reduciendo residuos al 100%.",
+      desc: "Con un ahorro de más de 35 € al mes, amortizas cualquier modelo de gama media en solo 8 meses reduciendo residuos al 100%.",
       anchor: "#comparador-side-by-side",
       btnText: "Comparar Modelos Lado a Lado"
     },
     '6': {
-      annualSavings: "680 €",
-      costCup: "0,11 €",
-      payback: "~6 meses",
+      annualSavings: "635 €",
+      costCup: "0,13 €",
+      payback: "~8 meses",
       tag: "Recomendada para 6+ cafés/día (Uso Intensivo & Leche)",
       title: "Philips 3300 LatteGo (EP3347/90 - 419 €)",
-      desc: "Jarra automática de leche sin tubos para cappuccinos instantáneos y molinillo cerámico para uso intensivo diario.",
+      desc: "Jarra automática de leche sin tubos para cappuccinos instantáneos y molinillo cerámico. Amortización de gama alta en 8 meses.",
       anchor: "#card-philips-lattego",
       btnText: "Ver Philips 3300 LatteGo"
     }

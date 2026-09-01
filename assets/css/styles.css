@@ -709,6 +709,37 @@ a {
   box-shadow: 0 4px 12px rgba(217, 83, 30, 0.28);
 }
 
+.calc-source-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.74rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-light);
+}
+
+.calc-source-note .source-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.calc-source-note strong {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+
+.calc-source-note .source-sub {
+  display: block;
+  font-size: 0.70rem;
+  color: var(--ink-faint);
+  margin-top: 3px;
+}
+
 @media (max-width: 600px) {
   .calc-metrics-row {
     grid-template-columns: 1fr;
