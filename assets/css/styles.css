@@ -66,12 +66,14 @@
 }
 
 html {
+  font-size: 15px;
   font-family: var(--font-body);
   background-color: var(--bg-page);
   color: var(--ink-secondary);
   line-height: 1.6;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -105,11 +107,11 @@ a {
 
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1220px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 28px;
+  padding-right: 28px;
 }
 
 .max-w-narrow {
