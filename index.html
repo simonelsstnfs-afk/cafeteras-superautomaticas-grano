@@ -40,10 +40,10 @@
       </a>
 
       <nav class="nav-links" aria-label="Navegación principal">
-        <a href="#comparativa" class="nav-link">Comparativa</a>
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="comparador.html" class="nav-link">Comparador</a>
+        <a href="guia-compra.html" class="nav-link">Guía de Compra</a>
         <a href="#modelos" class="nav-link">Fichas & Radar</a>
-        <a href="#criterios" class="nav-link">Criterios Técnicos</a>
-        <a href="#consumibles" class="nav-link">Café & Filtros</a>
         <a href="#faq" class="nav-link">FAQ</a>
       </nav>
 
@@ -418,6 +418,56 @@
       <div class="mobile-table-cards" id="mobileCardsContainer">
         <!-- Generado dinámicamente o estructurado para pantallas móviles -->
       </div>
+
+      <!-- Interactive Side-by-Side Comparator Widget -->
+      <div class="side-by-side-widget" id="comparador-side-by-side">
+        <div class="sbs-header">
+          <div>
+            <span class="sbs-eyebrow">MOTOR DINÁMICO CARA A CARA</span>
+            <h3 class="sbs-title">Comparador Interactivo Lado a Lado (Side-by-Side)</h3>
+          </div>
+          <a href="comparador.html" class="btn btn-secondary btn-sm">
+            <span>Abrir Comparador Completo (4 Modelos)</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <div class="sbs-selectors">
+          <div class="sbs-select-wrap">
+            <label class="sbs-select-label" for="sbsSelectA">Selecciona Cafetera A:</label>
+            <select id="sbsSelectA" class="sbs-select">
+              <option value="delonghi" selected>De'Longhi Magnifica S (ECAM 22.110.B)</option>
+              <option value="philips3300">Philips 3300 LatteGo (EP3347/90)</option>
+              <option value="philips2200">Philips Serie 2200 (EP2220/10)</option>
+              <option value="cecotec">Cecotec Cremmaet Cube Compacta</option>
+            </select>
+          </div>
+
+          <div class="sbs-vs-badge">VS</div>
+
+          <div class="sbs-select-wrap">
+            <label class="sbs-select-label" for="sbsSelectB">Selecciona Cafetera B:</label>
+            <select id="sbsSelectB" class="sbs-select">
+              <option value="delonghi">De'Longhi Magnifica S (ECAM 22.110.B)</option>
+              <option value="philips3300" selected>Philips 3300 LatteGo (EP3347/90)</option>
+              <option value="philips2200">Philips Serie 2200 (EP2220/10)</option>
+              <option value="cecotec">Cecotec Cremmaet Cube Compacta</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sbs-grid" id="sbsGrid">
+          <!-- Columna A -->
+          <div class="sbs-column" id="sbsColA"></div>
+          <!-- Columna B -->
+          <div class="sbs-column" id="sbsColB"></div>
+        </div>
+
+        <div class="sbs-footer-note">
+          <span style="font-size: 0.84rem; color: var(--ink-muted);">¿Quieres contrastar atributos avanzados como decibelios sonoros exactos, capacidad de tolva y recetas automáticas con filtros dinámicos?</span>
+          <a href="comparador.html" class="btn btn-primary btn-sm">Ir al Comparador Multi-Modelo →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -525,10 +575,15 @@
                   <span class="price-tag-label">Precio habitual en catálogo</span>
                   <span class="price-tag-value font-mono">299,99 €</span>
                 </div>
-                <a href="https://www.amazon.es/dp/B00400OMU0?tag=cafeteras-21" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-amazon">
-                  <span>Ver Oferta y Disponibilidad</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </a>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                  <a href="fichas/delonghi-magnifica-s.html" class="btn btn-secondary">
+                    <span>Ficha Técnica y Radar</span>
+                  </a>
+                  <a href="https://www.amazon.es/dp/B00400OMU0?tag=cafeteras-21" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-amazon">
+                    <span>Ver Oferta en Amazon</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -623,16 +678,120 @@
                   <span class="price-tag-label">Precio habitual en catálogo</span>
                   <span class="price-tag-value font-mono">419,99 €</span>
                 </div>
-                <a href="https://www.amazon.es/dp/B0CDCFH17J?tag=cafeteras-21" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-amazon">
-                  <span>Ver Oferta y Disponibilidad</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </a>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                  <a href="fichas/philips-3300-lattego.html" class="btn btn-secondary">
+                    <span>Ficha Técnica y Radar</span>
+                  </a>
+                  <a href="https://www.amazon.es/dp/B0CDCFH17J?tag=cafeteras-21" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-amazon">
+                    <span>Ver Oferta en Amazon</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- Machine 3: Cecotec Cremmaet Cube -->
+        <!-- Machine 3: Philips Serie 2200 -->
+        <article class="machine-card" id="card-philips2200">
+          <div class="machine-card-grid">
+            <div class="machine-visual-pane">
+              <div class="machine-badge-strip">
+                <span class="badge-category" style="color: #4F46E5;">Molinillo 100% Cerámico</span>
+                <span class="badge-metric font-mono">15 Bares / 12 Pasos</span>
+              </div>
+              <div class="machine-img-frame">
+                <img src="assets/img/philips-serie-2200.jpg" alt="Philips Serie 2200 EP2220/10">
+              </div>
+
+              <!-- Radar Chart SVG Widget -->
+              <div class="radar-widget">
+                <div class="radar-widget-header">
+                  <span class="radar-label font-mono">Radar de Rendimiento</span>
+                  <span class="radar-score font-mono">8.3 / 10 Global</span>
+                </div>
+                <div class="radar-svg-container" aria-label="Gráfico de radar evaluando Philips Serie 2200: Molienda 9.0, Limpieza 8.4, Silencio 7.2, Variedad 7.5, Calidad-Precio 9.2">
+                  <svg viewBox="0 0 220 200" class="radar-svg" role="img">
+                    <polygon points="110,20 195,82 163,180 57,180 25,82" class="radar-grid-outer"></polygon>
+                    <polygon points="110,44 178,93 152,168 68,168 42,93" class="radar-grid-level"></polygon>
+                    <polygon points="110,68 161,105 142,156 78,156 59,105" class="radar-grid-level"></polygon>
+                    <polygon points="110,92 144,117 132,144 88,144 76,117" class="radar-grid-level"></polygon>
+                    
+                    <line x1="110" y1="110" x2="110" y2="20" class="radar-axis"></line>
+                    <line x1="110" y1="110" x2="195" y2="82" class="radar-axis"></line>
+                    <line x1="110" y1="110" x2="163" y2="180" class="radar-axis"></line>
+                    <line x1="110" y1="110" x2="57" y2="180" class="radar-axis"></line>
+                    <line x1="110" y1="110" x2="25" y2="82" class="radar-axis"></line>
+
+                    <!-- Data Polygon: Philips 2200 (Molienda: 9.0, Limpieza: 8.4, Calidad-Precio: 9.2, Silencio: 7.2, Variedad: 7.5) -->
+                    <polygon points="110,29 182,87 159,177 72,162 46,89" class="radar-poly radar-poly-philips2200"></polygon>
+
+                    <circle cx="110" cy="29" r="4" class="radar-dot"></circle>
+                    <circle cx="182" cy="87" r="4" class="radar-dot"></circle>
+                    <circle cx="159" cy="177" r="4" class="radar-dot"></circle>
+                    <circle cx="72" cy="162" r="4" class="radar-dot"></circle>
+                    <circle cx="46" cy="89" r="4" class="radar-dot"></circle>
+
+                    <text x="110" y="14" class="radar-txt-axis" text-anchor="middle">Molienda (9.0)</text>
+                    <text x="200" y="85" class="radar-txt-axis" text-anchor="start">Limpieza (8.4)</text>
+                    <text x="165" y="195" class="radar-txt-axis" text-anchor="middle">Calidad/Precio (9.2)</text>
+                    <text x="55" y="195" class="radar-txt-axis" text-anchor="middle">Silencio (7.2)</text>
+                    <text x="20" y="85" class="radar-txt-axis" text-anchor="end">Recetas (7.5)</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="machine-editorial-pane">
+              <div class="editorial-eyebrow">OPCIÓN EQUILIBRADA EN MOLINILLO CERÁMICO</div>
+              <h3 class="editorial-title">Philips Serie 2200 (EP2220/10)</h3>
+              <p class="editorial-lead">La puerta de entrada más equilibrada a las muelas 100% cerámicas. Combina la interfaz táctil SensorTouch intuitiva con la tecnología antical patentada AquaClean y un espumador clásico Panarello para los amantes del ritual manual.</p>
+
+              <div class="pros-cons-grid">
+                <div class="points-col pros-col">
+                  <div class="points-header">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Puntos Fuertes</span>
+                  </div>
+                  <ul class="points-list">
+                    <li>Muelas cerámicas duraderas que no calientan el café y preservan aceites volátiles.</li>
+                    <li>Pantalla táctil SensorTouch con ajuste My Coffee Choice (3 intensidades y volumen).</li>
+                    <li>Compatibilidad con filtro AquaClean para hasta 5.000 tazas sin descalcificar.</li>
+                  </ul>
+                </div>
+
+                <div class="points-col cons-col">
+                  <div class="points-header">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <span>A considerar</span>
+                  </div>
+                  <ul class="points-list">
+                    <li>Vaporizador manual Panarello clásico (no cuenta con jarra automática LatteGo).</li>
+                    <li>Ciclos automáticos de enjuague frecuentes que requieren vaciar la bandeja periódicamente.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="editorial-cta-bar">
+                <div class="price-indicator">
+                  <span class="price-tag-label">Precio habitual en catálogo</span>
+                  <span class="price-tag-value font-mono">249,00 €</span>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                  <a href="fichas/philips-serie-2200.html" class="btn btn-secondary">
+                    <span>Ficha Técnica y Radar</span>
+                  </a>
+                  <a href="https://www.amazon.es/dp/B07MMSHC4R?tag=cafeteras-21" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-amazon">
+                    <span>Ver Oferta en Amazon</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Machine 4: Cecotec Cremmaet Cube -->
         <article class="machine-card" id="card-cecotec">
           <div class="machine-card-grid">
             <div class="machine-visual-pane">
@@ -721,10 +880,15 @@
                   <span class="price-tag-label">Precio habitual en catálogo</span>
                   <span class="price-tag-value font-mono">179,00 €</span>
                 </div>
-                <a href="https://www.amazon.es/dp/B0FP2HTVYR?tag=cafeteras-21" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-amazon">
-                  <span>Ver Oferta y Disponibilidad</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </a>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                  <a href="fichas/cecotec-cremmaet-cube.html" class="btn btn-secondary">
+                    <span>Ficha Técnica y Radar</span>
+                  </a>
+                  <a href="https://www.amazon.es/dp/B0FP2HTVYR?tag=cafeteras-21" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-amazon">
+                    <span>Ver Oferta en Amazon</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -869,6 +1033,22 @@
           </div>
         </div>
 
+        <!-- Product 5: Maxxi Clean 750ml Concentrado -->
+        <div class="consumable-card">
+          <div class="consumable-thumb-wrap">
+            <img src="assets/img/maxxi-clean-descalcificador-750ml.jpg" alt="Maxxi Clean 750ml Descalcificador Universal Concentrado">
+          </div>
+          <div class="consumable-body">
+            <span class="consumable-type">Descalcificación Universal</span>
+            <h4 class="consumable-name">Maxxi Clean 750ml Concentrado</h4>
+            <p class="consumable-desc">Descalcificador universal de alto rendimiento con indicador de color para cafeteras automáticas y termos.</p>
+            <div class="consumable-price-row">
+              <span class="price-val font-mono">14,99 €</span>
+              <a href="https://www.amazon.es/dp/B0855G8NDY?tag=cafeteras-21" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-secondary btn-sm">Ver en Amazon</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -946,11 +1126,13 @@
 
       <div class="footer-nav">
         <span class="footer-nav-title">Navegación</span>
-        <a href="#asistente">Selector Rápido</a>
-        <a href="#comparativa">Matriz Comparativa</a>
-        <a href="#modelos">Fichas con Radar</a>
-        <a href="#criterios">Criterios de Extracción</a>
-        <a href="#consumibles">Café y Mantenimiento</a>
+        <a href="index.html">Inicio</a>
+        <a href="comparador.html">Comparador de Modelos</a>
+        <a href="guia-compra.html">Guía de Compra Completa</a>
+        <a href="#modelos">Modelos y Gráficos Radar</a>
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
       </div>
 
       <div class="footer-legal">

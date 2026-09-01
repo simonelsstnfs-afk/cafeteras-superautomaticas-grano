@@ -293,4 +293,108 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
   }
+
+  // 9. Side-by-Side Interactive Comparator
+  const sbsData = {
+    'delonghi': {
+      name: "De'Longhi Magnifica S",
+      code: "ECAM 22.110.B",
+      price: "299,99 €",
+      img: "assets/img/delonghi-magnifica-s.jpg",
+      muelas: "Acero Cónico (13 pasos)",
+      presion: "15 Bares",
+      leche: "Manual (Vaporizador Panarello)",
+      higiene: "Infusor extraíble frontal",
+      deposito: "1.8 Litros",
+      score: "9.2 / 10 Global",
+      link: "https://www.amazon.es/dp/B00400OMU0?tag=cafeteras-21",
+      ficha: "fichas/delonghi-magnifica-s.html"
+    },
+    'philips3300': {
+      name: "Philips 3300 LatteGo",
+      code: "EP3347/90",
+      price: "419,99 €",
+      img: "assets/img/philips-3300-lattego.jpg",
+      muelas: "100% Cerámico (12 pasos)",
+      presion: "15 Bares (SilentBrew)",
+      leche: "Automático (LatteGo sin tubos)",
+      higiene: "Jarra 2 piezas apta lavavajillas",
+      deposito: "1.8 Litros (AquaClean)",
+      score: "9.0 / 10 Global",
+      link: "https://www.amazon.es/dp/B0CDCFH17J?tag=cafeteras-21",
+      ficha: "fichas/philips-3300-lattego.html"
+    },
+    'philips2200': {
+      name: "Philips Serie 2200",
+      code: "EP2220/10",
+      price: "249,00 €",
+      img: "assets/img/philips-serie-2200.jpg",
+      muelas: "100% Cerámico (12 pasos)",
+      presion: "15 Bares",
+      leche: "Manual (Panarello clásico)",
+      higiene: "Infusor extraíble lateral",
+      deposito: "1.8 Litros (AquaClean)",
+      score: "8.3 / 10 Global",
+      link: "https://www.amazon.es/dp/B07MMSHC4R?tag=cafeteras-21",
+      ficha: "fichas/philips-serie-2200.html"
+    },
+    'cecotec': {
+      name: "Cecotec Cremmaet Cube",
+      code: "Compact 1350W",
+      price: "179,00 €",
+      img: "assets/img/cecotec-cremmaet-cube.jpg",
+      muelas: "Acero Cónico (5 pasos)",
+      presion: "19 Bares (Thermoblock)",
+      leche: "Sin leche (Espresso puro)",
+      higiene: "Cajón compacto frontal",
+      deposito: "1.2 Litros",
+      score: "8.0 / 10 Global",
+      link: "https://www.amazon.es/dp/B0FP2HTVYR?tag=cafeteras-21",
+      ficha: "fichas/cecotec-cremmaet-cube.html"
+    }
+  };
+
+  const sbsSelectA = document.getElementById('sbsSelectA');
+  const sbsSelectB = document.getElementById('sbsSelectB');
+  const sbsColA = document.getElementById('sbsColA');
+  const sbsColB = document.getElementById('sbsColB');
+
+  function renderSbsColumn(colEl, machineKey) {
+    if (!colEl) return;
+    const m = sbsData[machineKey] || sbsData['delonghi'];
+    colEl.innerHTML = `
+      <div class="sbs-card-top">
+        <img src="${m.img}" alt="${m.name}" class="sbs-thumb">
+        <div>
+          <div class="sbs-name">${m.name}</div>
+          <div class="sbs-code">${m.code}</div>
+          <div class="sbs-price">${m.price}</div>
+        </div>
+      </div>
+      <table class="sbs-specs-table">
+        <tbody>
+          <tr><td class="k">Molinillo:</td><td class="v">${m.muelas}</td></tr>
+          <tr><td class="k">Presión:</td><td class="v font-mono">${m.presion}</td></tr>
+          <tr><td class="k">Sistema de Leche:</td><td class="v">${m.leche}</td></tr>
+          <tr><td class="k">Limpieza:</td><td class="v">${m.higiene}</td></tr>
+          <tr><td class="k">Depósito Agua:</td><td class="v">${m.deposito}</td></tr>
+          <tr><td class="k">Nota Técnica:</td><td class="v font-mono" style="color: var(--accent); font-weight:700;">${m.score}</td></tr>
+        </tbody>
+      </table>
+      <div class="sbs-actions">
+        <a href="${m.ficha}" class="btn btn-secondary btn-sm">Ver Ficha y Radar</a>
+        <a href="${m.link}" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-amazon btn-sm">
+          <span>Ver Oferta en Amazon</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </div>
+    `;
+  }
+
+  if (sbsSelectA && sbsSelectB) {
+    sbsSelectA.addEventListener('change', (e) => renderSbsColumn(sbsColA, e.target.value));
+    sbsSelectB.addEventListener('change', (e) => renderSbsColumn(sbsColB, e.target.value));
+    renderSbsColumn(sbsColA, sbsSelectA.value);
+    renderSbsColumn(sbsColB, sbsSelectB.value);
+  }
 });
