@@ -1,0 +1,43 @@
+# robots.txt for CafeterasSuperautomaticasGrano.es
+# AEO / GEO Optimization & AI Search Engine Friendly Configuration
+
+User-agent: *
+Allow: /
+Disallow: /aviso-legal.html
+Disallow: /cookies.html
+Disallow: /privacidad.html
+
+# -----------------------------------------------------------------------------
+# AI Search & Retrieval Crawlers (Motores de Respuesta y Búsqueda en Tiempo Real)
+# -----------------------------------------------------------------------------
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# -----------------------------------------------------------------------------
+# AI Foundation & Indexing Crawlers
+# -----------------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://cafeterassuperautomaticasgrano.es/sitemap.xml

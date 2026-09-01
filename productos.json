@@ -1,0 +1,98 @@
+{
+  "id_nicho": "cafeteras-superautomaticas-grano",
+  "tag_afiliado_generico": "cafeteras-21",
+  "total_productos": 9,
+  "instrucciones_monetizacion": "Puedes editar los campos 'enlace_personalizado_usuario' con tus enlaces cortos amzn.to de SiteStripe o cambiar 'tag_afiliado_generico' con tu ID de asociado, y ejecutar el comando /inyectar-enlaces.",
+  "productos": [
+    {
+      "asin": "B00400OMU0",
+      "rol_cluster": "INSIGNIA",
+      "marca": "De'Longhi",
+      "titulo": "De'Longhi Magnifica S - Cafetera Superautomática para Espresso y Café con Molinillo Integrado de 13 Niveles y Espumador de Leche Manual, 15 Bares, Negro (ECAM 22.110.B)",
+      "precio_estimado_eur": 299.99,
+      "enlace_referencia_amazon": "https://www.amazon.es/dp/B00400OMU0",
+      "enlace_afiliado_actual": "https://www.amazon.es/dp/B00400OMU0?tag=cafeteras-21",
+      "enlace_personalizado_usuario": ""
+    },
+    {
+      "asin": "B0CDCFH17J",
+      "rol_cluster": "PREMIUM",
+      "marca": "Philips",
+      "titulo": "PHILIPS 3300 Cafetera Superautomática LatteGo con 6 Bebidas, Pantalla Táctil a Color, Molinillo 100% Cerámico y Sistema SilentBrew, Cromo Negro (EP3347/90)",
+      "precio_estimado_eur": 419.99,
+      "enlace_referencia_amazon": "https://www.amazon.es/dp/B0CDCFH17J",
+      "enlace_afiliado_actual": "https://www.amazon.es/dp/B0CDCFH17J?tag=cafeteras-21",
+      "enlace_personalizado_usuario": ""
+    },
+    {
+      "asin": "B07MMSHC4R",
+      "rol_cluster": "PREMIUM",
+      "marca": "Philips",
+      "titulo": "PHILIPS Serie 2200 Cafetera Espresso Automática con Molinillo Cerámico, Pantalla Táctil SensorTouch y Espumador Clásico, Negro Mate (EP2220/10)",
+      "precio_estimado_eur": 249.0,
+      "enlace_referencia_amazon": "https://www.amazon.es/dp/B07MMSHC4R",
+      "enlace_afiliado_actual": "https://www.amazon.es/dp/B07MMSHC4R?tag=cafeteras-21",
+      "enlace_personalizado_usuario": ""
+    },
+    {
+      "asin": "B0FP2HTVYR",
+      "rol_cluster": "CALIDAD_PRECIO",
+      "marca": "Cecotec",
+      "titulo": "Cecotec Cafetera Superautomática Compacta Cremmaet Cube con Bomba de 19 Bares, Sistema Thermoblock, Pre-Infusión y Molinillo Cónico con Panel Táctil (1350 W)",
+      "precio_estimado_eur": 179.0,
+      "enlace_referencia_amazon": "https://www.amazon.es/dp/B0FP2HTVYR",
+      "enlace_afiliado_actual": "https://www.amazon.es/dp/B0FP2HTVYR?tag=cafeteras-21",
+      "enlace_personalizado_usuario": ""
+    },
+    {
+      "asin": "B0049U0DMC",
+      "rol_cluster": "CROSS_SELLING",
+      "marca": "Lavazza",
+      "titulo": "Lavazza Qualità Oro Café en Grano Natural 100% Arábica de Tueste Medio con Notas Florales y Frutales, Paquete de 1 kg",
+      "precio_estimado_eur": 22.65,
+      "enlace_referencia_amazon": "https://www.amazon.es/dp/B0049U0DMC",
+      "enlace_afiliado_actual": "https://www.amazon.es/dp/B0049U0DMC?tag=cafeteras-21",
+      "enlace_personalizado_usuario": ""
+    },
+    {
+      "asin": "B00FGK5FPY",
+      "rol_cluster": "CROSS_SELLING",
+      "marca": "Pellini",
+      "titulo": "Pellini N.82 Vivace Café en Grano Natural para Espresso Italiano Tradicional con Crema Densa y Gran Cuerpo, Bolsa de 1 kg",
+      "precio_estimado_eur": 19.9,
+      "enlace_referencia_amazon": "https://www.amazon.es/dp/B00FGK5FPY",
+      "enlace_afiliado_actual": "https://www.amazon.es/dp/B00FGK5FPY?tag=cafeteras-21",
+      "enlace_personalizado_usuario": ""
+    },
+    {
+      "asin": "B008YETL18",
+      "rol_cluster": "CROSS_SELLING",
+      "marca": "De'Longhi",
+      "titulo": "De'Longhi EcoDecalk Líquido Descalcificador Ecológico Universal para Cafeteras Automáticas y Manuales 500ml (5 Usos)",
+      "precio_estimado_eur": 6.6,
+      "enlace_referencia_amazon": "https://www.amazon.es/dp/B008YETL18",
+      "enlace_afiliado_actual": "https://www.amazon.es/dp/B008YETL18?tag=cafeteras-21",
+      "enlace_personalizado_usuario": ""
+    },
+    {
+      "asin": "B077XZ621G",
+      "rol_cluster": "CROSS_SELLING",
+      "marca": "Maxxi Clean",
+      "titulo": "Maxxi Clean 750ml Descalcificador Universal Concentrado para Cafeteras Automáticas y Pequeño Electrodoméstico con Removedor de Cal Rápido",
+      "precio_estimado_eur": 6.95,
+      "enlace_referencia_amazon": "https://www.amazon.es/dp/B077XZ621G",
+      "enlace_afiliado_actual": "https://www.amazon.es/dp/B077XZ621G?tag=cafeteras-21",
+      "enlace_personalizado_usuario": ""
+    },
+    {
+      "asin": "B0CH3GS92Q",
+      "rol_cluster": "CROSS_SELLING",
+      "marca": "Aiitomg",
+      "titulo": "Aiitomg Pack 6 Filtros de Agua para Cafeteras Superautomáticas con Carbón Activo y Resina Iónica Antical Compatibles con De'Longhi (DLSC002 / SER3017)",
+      "precio_estimado_eur": 33.89,
+      "enlace_referencia_amazon": "https://www.amazon.es/dp/B0CH3GS92Q",
+      "enlace_afiliado_actual": "https://www.amazon.es/dp/B0CH3GS92Q?tag=cafeteras-21",
+      "enlace_personalizado_usuario": ""
+    }
+  ]
+}
