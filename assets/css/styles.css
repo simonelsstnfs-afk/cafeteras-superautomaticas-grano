@@ -174,36 +174,26 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
 }
 
 .brand-badge {
-  width: 44px;
-  height: 44px;
-  background: #FFFFFF;
-  border: 1.5px solid var(--border-subtle);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px;
-  box-shadow: 0 2px 6px rgba(14, 18, 23, 0.06);
-  transition: transform 160ms var(--ease-tactile), border-color 160ms ease, box-shadow 160ms ease;
-  flex-shrink: 0;
-}
-
-.brand:hover .brand-badge {
-  transform: scale(1.05);
-  border-color: var(--accent);
-  box-shadow: 0 4px 14px rgba(217, 83, 30, 0.22);
+  display: contents;
 }
 
 .brand-logo-img {
-  width: 100%;
-  height: 100%;
+  height: 44px;
+  width: auto;
+  max-width: none;
   object-fit: contain;
   display: block;
+  flex-shrink: 0;
+  transition: transform 160ms var(--ease-tactile);
+}
+
+.brand:hover .brand-logo-img {
+  transform: scale(1.06);
 }
 
 .brand-identity {
@@ -1946,36 +1936,37 @@ a {
 .footer-brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-decoration: none;
 }
 
 .footer-brand-badge {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm, 6px);
-  background: #1B222B;
-  border: 1px solid #2D3748;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px;
-  flex-shrink: 0;
+  display: contents;
 }
 
+.footer-brand-logo-img,
 .footer-brand-badge img {
-  width: 100%;
-  height: 100%;
+  height: 46px;
+  width: auto;
+  max-width: none;
   object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 160ms var(--ease-tactile);
+}
+
+.footer-brand-logo:hover .footer-brand-logo-img,
+.footer-brand-logo:hover .footer-brand-badge img {
+  transform: scale(1.06);
 }
 
 .footer-brand-name {
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.22rem;
+  font-weight: 800;
   color: #FFFFFF !important;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .footer-brand-name strong {
