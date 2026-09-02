@@ -109,105 +109,370 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 6. Decision Wizard Logic (Asistente Rápido)
-  const wizardData = {
-    step1: 'black',
-    step2: 'balanced'
+  // 6. Unified Decision Assistant Logic ("Encuentra tu cafetera ideal")
+  const assistantState = {
+    step: 1,
+    drink: 'espresso',
+    cups: '3-4',
+    priority: 'value',
+    budget: 'any'
   };
 
-  const recommendations = {
-    'black-balanced': {
+  const CATALOG = {
+    'delonghi-magnifica-s': {
+      id: 'delonghi-magnifica-s',
+      brand: "De'Longhi",
       title: "De'Longhi Magnifica S (ECAM 22.110.B)",
-      reason: "La elección maestra para espresso puro: molinillo de acero cónico con 13 pasos micrométricos y el grupo infusor más fácil de mantener del mercado.",
       price: "299,99 €",
       img: "assets/img/delonghi-magnifica-s.jpg",
-      link: "https://www.amazon.es/dp/B00400OMU0?tag=cafeteras-21",
-      match: "98% Coincidencia de perfil"
+      affiliateUrl: "https://www.amazon.es/dp/B00400OMU0?tag=cafeteras-21",
+      fichaUrl: "fichas/delonghi-magnifica-s.html",
+      tag: "Espresso Puro • Durabilidad Legendaria",
+      strengths: [
+        "Molinillo cónico de acero templado con 13 pasos micrométricos de ajuste fino.",
+        "Grupo infusor extraíble lavable directamente al grifo de agua sin pastillas químicas caras.",
+        "Mecánica robusta y contrastada con repuestos universales accesibles durante años."
+      ],
+      limitations: "La leche se emulsiona de manera manual mediante lanza de vapor Panarello tradicional; no dispone de jarra automática para servir en taza.",
+      alternativeId: "philips-3300-lattego",
+      alternativeText: "Si tomas capuchinos o lattes a diario y prefieres no espumar leche a mano, compara la Philips 3300 con jarra LatteGo sin tubos."
     },
-    'black-compact': {
-      title: "Cecotec Cremmaet Cube Compacta",
-      reason: "La solución idónea para cocinas estrechas: 19 bares y bloque térmico Thermoblock ultra rápido en la mitad de espacio que una cafetera convencional.",
-      price: "179,00 €",
-      img: "assets/img/cecotec-cremmaet-cube.jpg",
-      link: "https://www.amazon.es/dp/B0FP2HTVYR?tag=cafeteras-21",
-      match: "95% Coincidencia de perfil"
-    },
-    'black-premium': {
-      title: "Philips Serie 2200 (EP2220/10)",
-      reason: "Muelas 100% cerámicas que no transmiten calor por fricción y panel táctil SensorTouch con vaporizador manual Panarello.",
-      price: "249,00 €",
-      img: "assets/img/philips-serie-2200.jpg",
-      link: "https://www.amazon.es/dp/B07MMSHC4R?tag=cafeteras-21",
-      match: "94% Coincidencia de perfil"
-    },
-    'milk-balanced': {
-      title: "De'Longhi Magnifica S con Vaporizador Manual",
-      reason: "Te permite emulsionar leche a mano con su lanza Panarello tradicional manteniendo la máxima durabilidad mecánica y bajo presupuesto.",
-      price: "299,99 €",
-      img: "assets/img/delonghi-magnifica-s.jpg",
-      link: "https://www.amazon.es/dp/B00400OMU0?tag=cafeteras-21",
-      match: "91% Coincidencia de perfil"
-    },
-    'milk-premium': {
+    'philips-3300-lattego': {
+      id: 'philips-3300-lattego',
+      brand: "Philips",
       title: "Philips 3300 LatteGo (EP3347/90)",
-      reason: "El sistema de leche más higiénico del mercado: jarra sin tubos que se enjuaga en 10 segundos, tecnología SilentBrew y 6 recetas directas.",
       price: "419,99 €",
       img: "assets/img/philips-3300-lattego.jpg",
-      link: "https://www.amazon.es/dp/B0CDCFH17J?tag=cafeteras-21",
-      match: "99% Coincidencia de perfil"
+      affiliateUrl: "https://www.amazon.es/dp/B0CDCFH17J?tag=cafeteras-21",
+      fichaUrl: "fichas/philips-3300-lattego.html",
+      tag: "Leche Automática • Máxima Higiene",
+      strengths: [
+        "Sistema de leche LatteGo sin tubos ni conductos ocultos: se desmonta en 2 piezas y se enjuaga en 15 segundos.",
+        "Pantalla táctil intuitiva con 6 variedades de bebidas con un solo toque y tecnología acústica SilentBrew.",
+        "Muelas 100% cerámicas que evitan transferir calor por fricción durante moliendas consecutivas."
+      ],
+      limitations: "Inversión inicial por encima de 400 € y altura superior que requiere verificar el espacio bajo muebles de cocina altos.",
+      alternativeId: "philips-serie-2200",
+      alternativeText: "Si buscas molinillo cerámico pero deseas un precio más ajustado y no te importa espumar la leche a mano, revisa la Philips Serie 2200."
     },
-    'milk-compact': {
-      title: "Cecotec Cremmaet Cube + Espumador Externo",
-      reason: "Permite tener una cafetera de grano ultra estrecha en la encimera y combinarla con un espumador de leche magnético independiente.",
+    'philips-serie-2200': {
+      id: 'philips-serie-2200',
+      brand: "Philips",
+      title: "Philips Serie 2200 (EP2220/10)",
+      price: "249,00 €",
+      img: "assets/img/philips-serie-2200.jpg",
+      affiliateUrl: "https://www.amazon.es/dp/B07MMSHC4R?tag=cafeteras-21",
+      fichaUrl: "fichas/philips-serie-2200.html",
+      tag: "Equilibrio Cerámico • Mejor Entrada",
+      strengths: [
+        "Muelas 100% cerámicas de 12 niveles a un coste muy competitivo en la gama de entrada.",
+        "Panel SensorTouch fácil de usar con ajuste de intensidad My Coffee Choice.",
+        "Compatibilidad con cartuchos de filtro AquaClean (hasta 5.000 tazas sin necesidad de descalcificar)."
+      ],
+      limitations: "Vaporizador de leche manual tipo Panarello y ciclos de aclarado automáticos algo frecuentes.",
+      alternativeId: "delonghi-magnifica-s",
+      alternativeText: "Si priorizas muelas de acero cónico de 13 pasos y el grupo infusor más fácil de mantener, la De'Longhi Magnifica S es la alternativa natural."
+    },
+    'cecotec-cremmaet-cube': {
+      id: 'cecotec-cremmaet-cube',
+      brand: "Cecotec",
+      title: "Cecotec Cremmaet Compact Cube",
       price: "179,00 €",
       img: "assets/img/cecotec-cremmaet-cube.jpg",
-      link: "https://www.amazon.es/dp/B0FP2HTVYR?tag=cafeteras-21",
-      match: "88% Coincidencia de perfil"
+      affiliateUrl: "https://www.amazon.es/dp/B0FP2HTVYR?tag=cafeteras-21",
+      fichaUrl: "fichas/cecotec-cremmaet-cube.html",
+      tag: "Ultra Compacta • Presupuesto Mínimo",
+      strengths: [
+        "Dimensiones reducidas pensadas específicamente para cocinas pequeñas y encimeras con fondo ajustado.",
+        "Bomba de 19 bares y bloque térmico Thermoblock de calentamiento rápido.",
+        "Coste de compra inferior a 200 € que permite amortizar la inversión frente a cápsulas en muy pocos meses."
+      ],
+      limitations: "No incorpora varilla de vapor ni jarra de leche; depósito de agua reducido (1,1L) y 5 posiciones de molienda.",
+      alternativeId: "delonghi-magnifica-s",
+      alternativeText: "Si dispones de algo más de espacio y quieres preparar capuchinos manuales con depósito de 1,8L, compensa dar el salto a la De'Longhi Magnifica S."
     }
   };
 
-  const wizardOptBtns = document.querySelectorAll('.wizard-opt-btn');
-  const resultTitle = document.getElementById('wizardResultTitle');
-  const resultReason = document.getElementById('wizardResultReason');
-  const resultPrice = document.getElementById('wizardResultPrice');
-  const resultImg = document.getElementById('wizardResultImg');
-  const resultLink = document.getElementById('wizardResultLink');
-  const resultMatch = document.querySelector('.result-match-rate');
+  const cupsMap = {
+    '1-2': { daily: 1.5, label: 'Basado en 1–2 cafés al día en tu hogar', textCups: '~550 cafés' },
+    '3-4': { daily: 3.5, label: 'Basado en 3–4 cafés al día (Media habitual de hogar)', textCups: '~1.277 cafés' },
+    '5-6': { daily: 5.5, label: 'Basado en 5–6 cafés al día en tu hogar', textCups: '~2.007 cafés' },
+    '6+':  { daily: 7.0, label: 'Basado en más de 6 cafés al día (Uso intensivo)', textCups: '~2.555 cafés' }
+  };
 
-  function updateWizard() {
-    const key = `${wizardData.step1}-${wizardData.step2}`;
-    const rec = recommendations[key] || recommendations['black-balanced'];
+  function computeRecommendation(drink, cups, priority, budget) {
+    const scores = {
+      'delonghi-magnifica-s': 0,
+      'philips-3300-lattego': 0,
+      'philips-serie-2200': 0,
+      'cecotec-cremmaet-cube': 0
+    };
 
-    if (resultTitle) resultTitle.textContent = rec.title;
-    if (resultReason) resultReason.textContent = rec.reason;
-    if (resultPrice) resultPrice.textContent = rec.price;
-    if (resultImg) {
-      resultImg.src = rec.img;
-      resultImg.alt = rec.title;
+    // 1. Drink preferences
+    if (drink === 'daily-milk') {
+      scores['philips-3300-lattego'] += 12;
+      scores['cecotec-cremmaet-cube'] -= 20; // No milk system
+      scores['delonghi-magnifica-s'] += 2;
+      scores['philips-serie-2200'] += 2;
+    } else if (drink === 'occasional-milk') {
+      scores['delonghi-magnifica-s'] += 7;
+      scores['philips-serie-2200'] += 7;
+      scores['philips-3300-lattego'] += 4;
+      scores['cecotec-cremmaet-cube'] -= 5;
+    } else if (drink === 'espresso') {
+      scores['delonghi-magnifica-s'] += 8;
+      scores['cecotec-cremmaet-cube'] += 6;
+      scores['philips-serie-2200'] += 5;
+      scores['philips-3300-lattego'] += 2;
+    } else { // versatile
+      scores['delonghi-magnifica-s'] += 6;
+      scores['philips-serie-2200'] += 6;
+      scores['philips-3300-lattego'] += 6;
     }
-    if (resultLink) resultLink.href = rec.link;
-    if (resultMatch) resultMatch.textContent = rec.match;
+
+    // 2. Priorities
+    if (priority === 'auto-milk') {
+      scores['philips-3300-lattego'] += 15;
+      scores['cecotec-cremmaet-cube'] -= 20;
+    } else if (priority === 'compact') {
+      scores['cecotec-cremmaet-cube'] += 14;
+    } else if (priority === 'durability') {
+      scores['delonghi-magnifica-s'] += 10;
+      scores['philips-serie-2200'] += 5;
+    } else if (priority === 'easy-cleaning') {
+      if (drink === 'daily-milk') {
+        scores['philips-3300-lattego'] += 10; // LatteGo 15s clean
+      } else {
+        scores['delonghi-magnifica-s'] += 8; // Washable group
+        scores['philips-3300-lattego'] += 6;
+      }
+    } else if (priority === 'value') {
+      scores['philips-serie-2200'] += 8;
+      scores['delonghi-magnifica-s'] += 8;
+      scores['cecotec-cremmaet-cube'] += 6;
+    }
+
+    // 3. Budget tier constraint
+    if (budget === 'under-250') {
+      scores['cecotec-cremmaet-cube'] += 8;
+      scores['philips-serie-2200'] += 8;
+      scores['delonghi-magnifica-s'] -= 4;
+      scores['philips-3300-lattego'] -= 25; // Over budget
+    } else if (budget === '250-400') {
+      scores['delonghi-magnifica-s'] += 8;
+      scores['philips-serie-2200'] += 4;
+      scores['philips-3300-lattego'] -= 10;
+    } else if (budget === 'over-400') {
+      scores['philips-3300-lattego'] += 10;
+    }
+
+    // 4. Usage intensity
+    if (cups === '6+') {
+      scores['delonghi-magnifica-s'] += 4;
+      scores['philips-3300-lattego'] += 4;
+      scores['cecotec-cremmaet-cube'] -= 6; // small water tank
+    }
+
+    // Determine winner with deterministic tie-breaker
+    const tieOrder = ['delonghi-magnifica-s', 'philips-3300-lattego', 'philips-serie-2200', 'cecotec-cremmaet-cube'];
+    let bestId = 'delonghi-magnifica-s';
+    let bestScore = -999;
+
+    tieOrder.forEach(id => {
+      if (scores[id] > bestScore) {
+        bestScore = scores[id];
+        bestId = id;
+      }
+    });
+
+    return CATALOG[bestId];
   }
 
-  wizardOptBtns.forEach(btn => {
+  function renderAssistant() {
+    const { step, drink, cups, priority, budget } = assistantState;
+    const step1El = document.getElementById('step1');
+    const step2El = document.getElementById('step2');
+    const step3El = document.getElementById('step3');
+    const resultEl = document.getElementById('assistantResult');
+    const progressWrap = document.getElementById('assistantProgressWrap');
+    const progressBar = document.getElementById('progressBar');
+    const progressStepText = document.getElementById('progressStepText');
+    const progressTopicText = document.getElementById('progressTopicText');
+
+    if (!step1El || !step2El || !step3El || !resultEl) return;
+
+    if (step <= 3) {
+      if (progressWrap) progressWrap.style.display = 'block';
+      resultEl.style.display = 'none';
+
+      step1El.style.display = step === 1 ? 'block' : 'none';
+      step2El.style.display = step === 2 ? 'block' : 'none';
+      step3El.style.display = step === 3 ? 'block' : 'none';
+
+      const progressWidth = step === 1 ? '33.33%' : step === 2 ? '66.66%' : '100%';
+      if (progressBar) progressBar.style.width = progressWidth;
+      if (progressStepText) progressStepText.textContent = `Paso ${step} de 3`;
+      if (progressTopicText) {
+        progressTopicText.textContent = step === 1 ? 'Tipo de bebida' : step === 2 ? 'Consumo diario' : 'Prioridad y presupuesto';
+      }
+    } else {
+      // Step 4: Show Result
+      if (progressWrap) progressWrap.style.display = 'none';
+      step1El.style.display = 'none';
+      step2El.style.display = 'none';
+      step3El.style.display = 'none';
+      resultEl.style.display = 'block';
+
+      const model = computeRecommendation(drink, cups, priority, budget);
+      const cupsData = cupsMap[cups] || cupsMap['3-4'];
+      const yearlyCups = Math.round(cupsData.daily * 365);
+      const capsuleCost = Math.round(yearlyCups * 0.42);
+      const beanCost = Math.round(yearlyCups * 0.13);
+      const netSavings = capsuleCost - beanCost;
+
+      // Populate left pane (Product info)
+      const resImg = document.getElementById('resImg');
+      const resBrand = document.getElementById('resBrand');
+      const resTitle = document.getElementById('resTitle');
+      const resPrice = document.getElementById('resPrice');
+      const resProfileTag = document.getElementById('resProfileTag');
+      const resReasonsList = document.getElementById('resReasonsList');
+      const resLimitText = document.getElementById('resLimitText');
+      const resAltText = document.getElementById('resAltText');
+      const resAltLink = document.getElementById('resAltLink');
+      const resAmazonBtn = document.getElementById('resAmazonBtn');
+      const resFichaBtn = document.getElementById('resFichaBtn');
+
+      if (resImg) { resImg.src = model.img; resImg.alt = model.title; }
+      if (resBrand) resBrand.textContent = model.brand;
+      if (resTitle) resTitle.textContent = model.title;
+      if (resPrice) resPrice.textContent = model.price;
+      if (resProfileTag) resProfileTag.textContent = model.tag;
+
+      if (resReasonsList) {
+        resReasonsList.innerHTML = model.strengths.map(s => `<li>${s}</li>`).join('');
+      }
+
+      if (resLimitText) resLimitText.textContent = model.limitations;
+
+      const altModel = CATALOG[model.alternativeId] || CATALOG['delonghi-magnifica-s'];
+      if (resAltText) resAltText.textContent = model.alternativeText;
+      if (resAltLink) {
+        resAltLink.textContent = `Comparar con ${altModel.brand} en la matriz técnica →`;
+        resAltLink.href = 'comparador.html';
+      }
+
+      if (resAmazonBtn) resAmazonBtn.href = model.affiliateUrl;
+      if (resFichaBtn) resFichaBtn.href = model.fichaUrl;
+
+      // Populate right pane (Savings breakdown)
+      const savingsCupsBadge = document.getElementById('savingsCupsBadge');
+      const savingsAnnualNet = document.getElementById('savingsAnnualNet');
+      const sbYearlyCups = document.getElementById('sbYearlyCups');
+      const sbCapsuleCost = document.getElementById('sbCapsuleCost');
+      const sbBeanCost = document.getElementById('sbBeanCost');
+
+      if (savingsCupsBadge) savingsCupsBadge.textContent = cupsData.label;
+      if (savingsAnnualNet) savingsAnnualNet.textContent = `~${netSavings} €`;
+      if (sbYearlyCups) sbYearlyCups.textContent = `${yearlyCups} tazas/año`;
+      if (sbCapsuleCost) sbCapsuleCost.textContent = `~${capsuleCost} €/año`;
+      if (sbBeanCost) sbBeanCost.textContent = `~${beanCost} €/año`;
+    }
+  }
+
+  // Bind assistant events
+  // Step 1 Options
+  const step1Opts = document.querySelectorAll('#step1 .opt-card');
+  step1Opts.forEach(btn => {
     btn.addEventListener('click', () => {
-      const step = btn.getAttribute('data-step');
-      const val = btn.getAttribute('data-val');
-
-      if (step === '1') wizardData.step1 = val;
-      if (step === '2') wizardData.step2 = val;
-
-      const siblingBtns = btn.parentElement.querySelectorAll('.wizard-opt-btn');
-      siblingBtns.forEach(b => {
+      step1Opts.forEach(b => {
         b.classList.remove('active');
         b.setAttribute('aria-checked', 'false');
       });
       btn.classList.add('active');
       btn.setAttribute('aria-checked', 'true');
-
-      updateWizard();
+      assistantState.drink = btn.getAttribute('data-val');
+      setTimeout(() => {
+        assistantState.step = 2;
+        renderAssistant();
+      }, 120);
     });
   });
+
+  // Step 2 Options
+  const step2Opts = document.querySelectorAll('#step2 .opt-card');
+  step2Opts.forEach(btn => {
+    btn.addEventListener('click', () => {
+      step2Opts.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-checked', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-checked', 'true');
+      assistantState.cups = btn.getAttribute('data-val');
+      setTimeout(() => {
+        assistantState.step = 3;
+        renderAssistant();
+      }, 120);
+    });
+  });
+
+  // Step 3 Priority Options
+  const step3PriorityOpts = document.querySelectorAll('#step3 .grid-priority .opt-card');
+  step3PriorityOpts.forEach(btn => {
+    btn.addEventListener('click', () => {
+      step3PriorityOpts.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-checked', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-checked', 'true');
+      assistantState.priority = btn.getAttribute('data-val');
+      setTimeout(() => {
+        assistantState.step = 4;
+        renderAssistant();
+      }, 120);
+    });
+  });
+
+  // Step 3 Budget Filter Pills
+  const budgetPills = document.querySelectorAll('.budget-pill');
+  budgetPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      budgetPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      assistantState.budget = pill.getAttribute('data-budget');
+    });
+  });
+
+  // Step Back Buttons
+  const btnBackTo1 = document.getElementById('btnBackTo1');
+  if (btnBackTo1) {
+    btnBackTo1.addEventListener('click', () => {
+      assistantState.step = 1;
+      renderAssistant();
+    });
+  }
+
+  const btnBackTo2 = document.getElementById('btnBackTo2');
+  if (btnBackTo2) {
+    btnBackTo2.addEventListener('click', () => {
+      assistantState.step = 2;
+      renderAssistant();
+    });
+  }
+
+  // Restart Button
+  const btnRestartAssistant = document.getElementById('btnRestartAssistant');
+  if (btnRestartAssistant) {
+    btnRestartAssistant.addEventListener('click', () => {
+      assistantState.step = 1;
+      renderAssistant();
+    });
+  }
+
+  // Initialize assistant
+  renderAssistant();
 
   // 7. Mobile Comparison Cards Auto-Generation & Filter Sync
   const mobileContainer = document.getElementById('mobileCardsContainer');
@@ -398,89 +663,4 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSbsColumn(sbsColB, sbsSelectB.value);
   }
 
-  // 10. Automatic Hero Savings Calculator & Guided Purchase Path
-  const calcPills = document.querySelectorAll('.calc-pill');
-  const calcAnnualSavings = document.getElementById('calcAnnualSavings');
-  const calcCostPerCup = document.getElementById('calcCostPerCup');
-  const calcPaybackTime = document.getElementById('calcPaybackTime');
-  const guidanceTag = document.getElementById('guidanceTag');
-  const guidanceTitle = document.getElementById('guidanceTitle');
-  const guidanceDesc = document.getElementById('guidanceDesc');
-  const guidanceLink = document.getElementById('guidanceLink');
-  const guidanceBtnText = document.getElementById('guidanceBtnText');
-
-  const cupConfigs = {
-    '1': {
-      annualSavings: "106 €",
-      costCup: "0,13 €",
-      payback: "~19 meses",
-      tag: "Recomendada para 1 café/día (Inversión mínima)",
-      title: "Cecotec Cremmaet Cube Compacta (179 €)",
-      desc: "Formato ultra-compacto de 19 bares ideal para un café matutino sin hipotecar espacio ni presupuesto. Se amortiza en 19 meses.",
-      anchor: "#card-cecotec",
-      btnText: "Ver Análisis & Oferta"
-    },
-    '2': {
-      annualSavings: "212 €",
-      costCup: "0,13 €",
-      payback: "~14 meses",
-      tag: "Recomendada para 2 cafés/día (Equilibrio Cerámico)",
-      title: "Philips Serie 2200 (EP2220/10 - 249 €)",
-      desc: "Muelas 100% cerámicas que evitan sobrecalentar el grano. Retorno total de inversión en exactamente 14 meses (ahorro de 18 €/mes).",
-      anchor: "#card-philips2200",
-      btnText: "Ver Análisis & Oferta"
-    },
-    '3': {
-      annualSavings: "318 €",
-      costCup: "0,13 €",
-      payback: "~11 meses",
-      tag: "Recomendada para 3 cafés/día (Media de Hogar)",
-      title: "De'Longhi Magnifica S (299,99 €)",
-      desc: "La cafetera más probada y vendida de la década. Ahorras 26,50 € al mes; la máquina queda totalmente pagada en menos de 1 año.",
-      anchor: "#card-delonghi",
-      btnText: "Ver Análisis & Oferta"
-    },
-    '4': {
-      annualSavings: "423 €",
-      costCup: "0,13 €",
-      payback: "~8 meses",
-      tag: "Recomendada para 4 cafés/día (Alta Rotación Familiar)",
-      title: "De'Longhi Magnifica S o Philips 2200",
-      desc: "Con un ahorro de más de 35 € al mes, amortizas cualquier modelo de gama media en solo 8 meses reduciendo residuos al 100%.",
-      anchor: "#comparador-side-by-side",
-      btnText: "Comparar Modelos Lado a Lado"
-    },
-    '6': {
-      annualSavings: "635 €",
-      costCup: "0,13 €",
-      payback: "~8 meses",
-      tag: "Recomendada para 6+ cafés/día (Uso Intensivo & Leche)",
-      title: "Philips 3300 LatteGo (EP3347/90 - 419 €)",
-      desc: "Jarra automática de leche sin tubos para cappuccinos instantáneos y molinillo cerámico. Amortización de gama alta en 8 meses.",
-      anchor: "#card-philips-lattego",
-      btnText: "Ver Philips 3300 LatteGo"
-    }
-  };
-
-  if (calcPills.length > 0 && calcAnnualSavings) {
-    calcPills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        calcPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-
-        const cups = pill.getAttribute('data-cups');
-        const config = cupConfigs[cups] || cupConfigs['3'];
-
-        calcAnnualSavings.textContent = config.annualSavings;
-        if (calcCostPerCup) calcCostPerCup.textContent = config.costCup;
-        if (calcPaybackTime) calcPaybackTime.textContent = config.payback;
-
-        if (guidanceTag) guidanceTag.textContent = config.tag;
-        if (guidanceTitle) guidanceTitle.textContent = config.title;
-        if (guidanceDesc) guidanceDesc.textContent = config.desc;
-        if (guidanceLink) guidanceLink.setAttribute('href', config.anchor);
-        if (guidanceBtnText) guidanceBtnText.textContent = config.btnText;
-      });
-    });
-  }
 });
