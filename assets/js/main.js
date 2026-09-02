@@ -288,12 +288,42 @@ document.addEventListener('DOMContentLoaded', () => {
     return CATALOG[bestId];
   }
 
+  const drinkLabels = {
+    'espresso': '☕ Solo Espresso',
+    'occasional-milk': '🥛 Leche ocasional',
+    'daily-milk': '🥛 Leche a diario',
+    'versatile': '☕ Variado / Familiar'
+  };
+
+  const cupsLabels = {
+    '1-2': '📊 1–2 cafés/día',
+    '3-4': '📊 3–4 cafés/día',
+    '5-6': '📊 5–6 cafés/día',
+    '6+':  '📊 Más de 6 cafés/día'
+  };
+
+  const priorityLabels = {
+    'value': '⚖️ Calidad / Precio',
+    'easy-cleaning': '🧼 Fácil limpieza',
+    'auto-milk': '🥛 Leche automática',
+    'compact': '📐 Compacta',
+    'durability': '⚙️ Durabilidad'
+  };
+
+  const budgetLabels = {
+    'any': '💶 Presupuesto libre',
+    'under-250': '💶 Menos de 250 €',
+    '250-400': '💶 250 – 400 €',
+    'over-400': '💶 Más de 400 €'
+  };
+
   function renderAssistant() {
     const { step, drink, cups, priority, budget } = assistantState;
     const step1El = document.getElementById('step1');
     const step2El = document.getElementById('step2');
     const step3El = document.getElementById('step3');
     const resultEl = document.getElementById('assistantResult');
+    const stepsContainer = document.getElementById('assistantSteps');
     const progressWrap = document.getElementById('assistantProgressWrap');
     const progressBar = document.getElementById('progressBar');
     const progressStepText = document.getElementById('progressStepText');
@@ -303,6 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (step <= 3) {
       if (progressWrap) progressWrap.style.display = 'block';
+      if (stepsContainer) stepsContainer.style.display = 'block';
       resultEl.style.display = 'none';
 
       step1El.style.display = step === 1 ? 'block' : 'none';
@@ -316,12 +347,24 @@ document.addEventListener('DOMContentLoaded', () => {
         progressTopicText.textContent = step === 1 ? 'Tipo de bebida' : step === 2 ? 'Consumo diario' : 'Prioridad y presupuesto';
       }
     } else {
-      // Step 4: Show Result
+      // Step 4: Show Result (hide steps container completely to remove blank space)
       if (progressWrap) progressWrap.style.display = 'none';
+      if (stepsContainer) stepsContainer.style.display = 'none';
       step1El.style.display = 'none';
       step2El.style.display = 'none';
       step3El.style.display = 'none';
       resultEl.style.display = 'block';
+
+      // Update choice chips in summary strip
+      const chipDrink = document.getElementById('chipDrink');
+      const chipCups = document.getElementById('chipCups');
+      const chipPriority = document.getElementById('chipPriority');
+      const chipBudget = document.getElementById('chipBudget');
+
+      if (chipDrink) chipDrink.textContent = drinkLabels[drink] || drink;
+      if (chipCups) chipCups.textContent = cupsLabels[cups] || cups;
+      if (chipPriority) chipPriority.textContent = priorityLabels[priority] || priority;
+      if (chipBudget) chipBudget.textContent = budgetLabels[budget] || budget;
 
       const model = computeRecommendation(drink, cups, priority, budget);
       const cupsData = cupsMap[cups] || cupsMap['3-4'];
@@ -431,6 +474,10 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         assistantState.step = 4;
         renderAssistant();
+        const assistantEl = document.getElementById('asistente');
+        if (assistantEl) {
+          assistantEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }, 120);
     });
   });
@@ -462,12 +509,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Edit Choices Button (in Result Summary Strip)
+  const btnEditChoices = document.getElementById('btnEditChoices');
+  if (btnEditChoices) {
+    btnEditChoices.addEventListener('click', () => {
+      assistantState.step = 1;
+      renderAssistant();
+      const assistantEl = document.getElementById('asistente');
+      if (assistantEl) {
+        assistantEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
   // Restart Button
   const btnRestartAssistant = document.getElementById('btnRestartAssistant');
   if (btnRestartAssistant) {
     btnRestartAssistant.addEventListener('click', () => {
       assistantState.step = 1;
       renderAssistant();
+      const assistantEl = document.getElementById('asistente');
+      if (assistantEl) {
+        assistantEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   }
 

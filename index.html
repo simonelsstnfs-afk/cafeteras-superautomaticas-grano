@@ -69,7 +69,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/logo_square.png">
   
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260902f">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260902g">
 </head>
 <body>
 
@@ -351,6 +351,24 @@
 
         <!-- RESULT CONTAINER (aria-live="polite") -->
         <div class="assistant-result-card" id="assistantResult" style="display: none;" aria-live="polite">
+          
+          <!-- User Selected Choices Summary Strip -->
+          <div class="user-choices-summary" id="userChoicesSummary">
+            <div class="choices-left-group">
+              <span class="choices-eyebrow font-mono">Tus elecciones:</span>
+              <div class="choices-chips-list">
+                <span class="choice-chip font-mono" id="chipDrink">☕ Solo Espresso</span>
+                <span class="choice-chip font-mono" id="chipCups">📊 3–4 cafés/día</span>
+                <span class="choice-chip font-mono" id="chipPriority">⚖️ Calidad / Precio</span>
+                <span class="choice-chip font-mono" id="chipBudget">💶 Todas las opciones</span>
+              </div>
+            </div>
+            <button type="button" class="btn-edit-choices font-mono" id="btnEditChoices">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              <span>Modificar respuestas</span>
+            </button>
+          </div>
+
           <div class="result-top-banner">
             <div class="result-badge-group">
               <span class="badge-pill badge-green">✓ Recomendación según tus prioridades</span>
@@ -1438,7 +1456,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20260902f"></script>
+  <script src="assets/js/main.js?v=20260902g"></script>
 
   <!-- Cookie Consent Banner -->
   <div class="cookie-banner" id="cookieBanner" role="dialog" aria-modal="true" aria-label="Consentimiento de cookies">
