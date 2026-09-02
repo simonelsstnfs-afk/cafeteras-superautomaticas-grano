@@ -100,6 +100,81 @@ a {
   border-radius: var(--radius-xs);
 }
 
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--ink-primary);
+  color: #FFFFFF;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+  transition: top var(--duration-quick) var(--ease-tactile);
+}
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid var(--accent);
+}
+
+/* Hero Fast Buy Button & Micro Disclosure */
+.btn-amazon-fast {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: #FFF7ED;
+  color: #9A3412;
+  border: 1.5px solid #FDBA74;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: all var(--duration-quick) var(--ease-tactile);
+}
+.btn-amazon-fast:hover {
+  background: #FFEDD5;
+  border-color: #FB923C;
+  color: #7C2D12;
+  transform: translateY(-1px);
+}
+.hero-disclosure-micro {
+  margin-top: 12px;
+  font-size: 0.74rem;
+  color: var(--ink-muted);
+}
+.hero-disclosure-micro a {
+  text-decoration: underline;
+  color: var(--ink-secondary);
+}
+
+/* Wizard Transparent Criteria Styles */
+.wizard-result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.wizard-why-box, .wizard-limit-box, .wizard-alt-box {
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+.wizard-why-box strong {
+  color: var(--ink-primary);
+}
+.wizard-limit-box {
+  color: #92400E;
+  background: #FEF3C7;
+  padding: 6px 10px;
+  border-radius: var(--radius-xs);
+  border-left: 3px solid #F59E0B;
+}
+.wizard-alt-box {
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
 .font-mono {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
