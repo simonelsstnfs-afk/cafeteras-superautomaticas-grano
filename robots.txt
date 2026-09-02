@@ -39,5 +39,4 @@ Allow: /
 
 User-agent: cohere-ai
 Allow: /
-
-Sitemap: https://cafeterassuperautomaticasgrano.es/sitemap.xml
+Sitemap: https://cafeteras-superautomaticas-grano.vercel.app/sitemap.xml
