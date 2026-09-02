@@ -12,32 +12,6 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 0. Analytics Dispatcher (Consent-First Architecture for Hostinger / GA4)
-  window.dataLayer = window.dataLayer || [];
-  window.trackAnalyticsEvent = function(eventName, params = {}) {
-    const consent = localStorage.getItem('cookie_consent_cafeteras');
-    if (consent === 'accepted') {
-      window.dataLayer.push({
-        event: eventName,
-        ...params,
-        timestamp: new Date().toISOString()
-      });
-    }
-  };
-
-  // Track Amazon Affiliate outbound clicks
-  document.querySelectorAll('a[href*="amazon.es"]').forEach(link => {
-    link.addEventListener('click', () => {
-      const url = link.getAttribute('href') || '';
-      const text = link.textContent.trim().replace(/\s+/g, ' ');
-      window.trackAnalyticsEvent('affiliate_click', {
-        destination_url: url,
-        link_text: text,
-        page_location: window.location.pathname
-      });
-    });
-  });
-
   // 1. Mobile Menu Toggle
   const menuToggle = document.getElementById('menuToggle');
   const mainNav = document.getElementById('mainNav');
@@ -135,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 6. Decision Wizard Logic (Asistente Rápido con Criterios Transparentes)
+  // 6. Decision Wizard Logic (Asistente Rápido)
   const wizardData = {
     step1: 'black',
     step2: 'balanced'
@@ -144,69 +118,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const recommendations = {
     'black-balanced': {
       title: "De'Longhi Magnifica S (ECAM 22.110.B)",
-      badge: "Recomendación: Espresso Puro + Durabilidad",
-      why: "La recomendamos porque priorizas espresso/café solo, durabilidad a largo plazo (250–300 €) y un grupo infusor extraíble fácil de enjuagar al agua.",
-      limits: "No incluye jarra automática para leche; dispone de lanza manual Panarello para emulsionar.",
-      alternative: "Si prefieres muelas cerámicas en este mismo rango de precio, revisa la Philips Serie 2200.",
+      reason: "La elección maestra para espresso puro: molinillo de acero cónico con 13 pasos micrométricos y el grupo infusor más fácil de mantener del mercado.",
       price: "299,99 €",
       img: "assets/img/delonghi-magnifica-s.jpg",
       link: "https://www.amazon.es/dp/B00400OMU0?tag=cafeteras-21",
-      ficha: "fichas/delonghi-magnifica-s.html"
+      match: "98% Coincidencia de perfil"
     },
     'black-compact': {
-      title: "Cecotec Cremmaet Compact Cube",
-      badge: "Recomendación: Espacio Reducido + Coste Mínimo",
-      why: "La recomendamos si tu encimera tiene poco espacio libre, buscas gastar menos de 200 € y priorizas café rápido con bloque Thermoblock.",
-      limits: "Depósito de agua más compacto (1,1L) y 5 niveles de molienda frente a los 12 o 13 de marcas italianas.",
-      alternative: "Para mayor capacidad y muelas con micro-ajuste de 13 pasos, compensa la De'Longhi Magnifica S.",
+      title: "Cecotec Cremmaet Cube Compacta",
+      reason: "La solución idónea para cocinas estrechas: 19 bares y bloque térmico Thermoblock ultra rápido en la mitad de espacio que una cafetera convencional.",
       price: "179,00 €",
       img: "assets/img/cecotec-cremmaet-cube.jpg",
       link: "https://www.amazon.es/dp/B0FP2HTVYR?tag=cafeteras-21",
-      ficha: "fichas/cecotec-cremmaet-cube.html"
+      match: "95% Coincidencia de perfil"
     },
     'black-premium': {
       title: "Philips Serie 2200 (EP2220/10)",
-      badge: "Recomendación: Muelas Cerámicas + Panel Táctil",
-      why: "La recomendamos si buscas molienda cerámica que no caliente el grano, control táctil SensorTouch intuitivo y filtro antical AquaClean.",
-      limits: "El espumador de leche es manual (varilla Panarello que exige limpieza tras cada uso).",
-      alternative: "Si quieres automatizar capuchinos sin lavar tubos, la Philips 3300 LatteGo es la opción directa.",
+      reason: "Muelas 100% cerámicas que no transmiten calor por fricción y panel táctil SensorTouch con vaporizador manual Panarello.",
       price: "249,00 €",
       img: "assets/img/philips-serie-2200.jpg",
       link: "https://www.amazon.es/dp/B07MMSHC4R?tag=cafeteras-21",
-      ficha: "fichas/philips-serie-2200.html"
+      match: "94% Coincidencia de perfil"
     },
     'milk-balanced': {
-      title: "De'Longhi Magnifica S (con Lanza Vaporizadora)",
-      badge: "Recomendación: Ritual Manual Robusto + Fiabilidad",
-      why: "La recomendamos si te gusta texturizar la leche manualmente con lanza tradicional manteniendo máxima robustez mecánica y bajo coste.",
-      limits: "No vierte la leche espumada de forma automática en la taza.",
-      alternative: "Si tomas 2 o más cafés con leche al día y valoras la inmediatez, la Philips 3300 LatteGo ahorra tiempo.",
+      title: "De'Longhi Magnifica S con Vaporizador Manual",
+      reason: "Te permite emulsionar leche a mano con su lanza Panarello tradicional manteniendo la máxima durabilidad mecánica y bajo presupuesto.",
       price: "299,99 €",
       img: "assets/img/delonghi-magnifica-s.jpg",
       link: "https://www.amazon.es/dp/B00400OMU0?tag=cafeteras-21",
-      ficha: "fichas/delonghi-magnifica-s.html"
+      match: "91% Coincidencia de perfil"
     },
     'milk-premium': {
       title: "Philips 3300 LatteGo (EP3347/90)",
-      badge: "Recomendación: Capuchinos Automáticos + Higiene Sin Tubos",
-      why: "La recomendamos porque su jarra LatteGo no tiene tubos internos (se lava en 15 segundos bajo el grifo), ofrece 6 recetas directas y tecnología SilentBrew.",
-      limits: "Presupuesto superior a 400 € y altura necesaria en mueble alto para retirar jarra y rellenar agua.",
-      alternative: "Para bebidas con leche a precio más accesible con espumado manual, la Serie 2200 cuesta casi la mitad.",
+      reason: "El sistema de leche más higiénico del mercado: jarra sin tubos que se enjuaga en 10 segundos, tecnología SilentBrew y 6 recetas directas.",
       price: "419,99 €",
       img: "assets/img/philips-3300-lattego.jpg",
       link: "https://www.amazon.es/dp/B0CDCFH17J?tag=cafeteras-21",
-      ficha: "fichas/philips-3300-lattego.html"
+      match: "99% Coincidencia de perfil"
     },
     'milk-compact': {
-      title: "Cecotec Cremmaet Cube (Formato Compacto)",
-      badge: "Recomendación: Formato Estrecho para Espresso",
-      why: "La recomendamos para cocinas donde cada centímetro cuenta, preparando una base espresso de grano excelente para luego añadir leche.",
-      limits: "No integra lanza vaporizadora ni jarra de leche en su chasis.",
-      alternative: "Si necesitas espumar leche directamente en la cafetera, la De'Longhi Magnifica S es la alternativa idónea.",
+      title: "Cecotec Cremmaet Cube + Espumador Externo",
+      reason: "Permite tener una cafetera de grano ultra estrecha en la encimera y combinarla con un espumador de leche magnético independiente.",
       price: "179,00 €",
       img: "assets/img/cecotec-cremmaet-cube.jpg",
       link: "https://www.amazon.es/dp/B0FP2HTVYR?tag=cafeteras-21",
-      ficha: "fichas/cecotec-cremmaet-cube.html"
+      match: "88% Coincidencia de perfil"
     }
   };
 
@@ -223,27 +179,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const rec = recommendations[key] || recommendations['black-balanced'];
 
     if (resultTitle) resultTitle.textContent = rec.title;
-    if (resultReason) {
-      resultReason.innerHTML = `
-        <div class="wizard-result-details">
-          <div class="wizard-why-box"><strong>Por qué encaja:</strong> ${rec.why}</div>
-          <div class="wizard-limit-box"><strong>A tener en cuenta:</strong> ${rec.limits}</div>
-          <div class="wizard-alt-box"><strong>Alternativa:</strong> ${rec.alternative}</div>
-        </div>
-      `;
-    }
+    if (resultReason) resultReason.textContent = rec.reason;
     if (resultPrice) resultPrice.textContent = rec.price;
     if (resultImg) {
       resultImg.src = rec.img;
       resultImg.alt = rec.title;
     }
     if (resultLink) resultLink.href = rec.link;
-    if (resultMatch) resultMatch.textContent = rec.badge;
-
-    trackAnalyticsEvent('selector_recommendation_viewed', {
-      profile_key: key,
-      recommended_product: rec.title
-    });
+    if (resultMatch) resultMatch.textContent = rec.match;
   }
 
   wizardOptBtns.forEach(btn => {
@@ -262,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active');
       btn.setAttribute('aria-checked', 'true');
 
-      trackAnalyticsEvent('selector_step_completed', { step, value: val });
       updateWizard();
     });
   });
@@ -494,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
       payback: "~11 meses",
       tag: "Recomendada para 3 cafés/día (Media de Hogar)",
       title: "De'Longhi Magnifica S (299,99 €)",
-      desc: "Uno de los modelos más contrastados en durabilidad mecánica. Ahorras ~26,50 € al mes; la máquina queda totalmente amortizada en menos de 1 año.",
+      desc: "La cafetera más probada y vendida de la década. Ahorras 26,50 € al mes; la máquina queda totalmente pagada en menos de 1 año.",
       anchor: "#card-delonghi",
       btnText: "Ver Análisis & Oferta"
     },
@@ -538,11 +480,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (guidanceDesc) guidanceDesc.textContent = config.desc;
         if (guidanceLink) guidanceLink.setAttribute('href', config.anchor);
         if (guidanceBtnText) guidanceBtnText.textContent = config.btnText;
-
-        window.trackAnalyticsEvent('calculator_usage', {
-          cups_per_day: cups,
-          annual_savings: config.annualSavings
-        });
       });
     });
   }
